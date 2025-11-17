@@ -27,11 +27,13 @@ npm run build
 ### Option 1: Using Vercel CLI
 
 1. Install Vercel CLI globally:
+
    ```bash
    npm i -g vercel
    ```
 
 2. Deploy:
+
    ```bash
    vercel
    ```
@@ -51,7 +53,7 @@ npm run build
 5. Click "Deploy" - Vercel will build and deploy your app automatically.
 
 The `vercel.json` file is already configured with:
+
 - Build command: `npm run build`
 - Output directory: `dist/graid-web/browser`
 - SPA routing support (all routes redirect to index.html)
-
