@@ -3,99 +3,19 @@
   <header class="header">
     <div class="header-content">
       <h1 class="main-title">Graid</h1>
+      <nav class="header-navbar">
+        <button
+          mat-raised-button
+          color="primary"
+          class="navbar-button"
+          (click)="navigateToScheduleDemo()"
+        >
+          Schedule a Demo
+        </button>
+      </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="hero-content">
-      <h2 class="hero-title">Vision and Voice AI Tutor</h2>
-      <h3 class="hero-subtitle">that Reports Student Needs to Professors</h3>
-      <p class="hero-tagline">Personalize learning without guessing</p>
-      <button mat-raised-button color="primary" class="hero-button">
-        Schedule a Demo
-      </button>
-    </div>
-  </section>
-
-  <!-- Content Sections -->
-  <div class="content-wrapper">
-    <section class="content-card">
-      <h2 class="card-title">
-        The Problem: Professors Can't Personalize Learning
-      </h2>
-      <p class="card-description">
-        Professors struggle to personalize learning according to student needs
-        because they don't know what everyone's individual needs are. We spoke
-        with over 200 professors and they see AI's potential to personalize
-        learning, but they can't influence how students use the AI.
-      </p>
-      <p class="card-description">
-        Research shows that students who use AI effectively can get better test
-        scores, but MIT research showed that students misusing AI leads to less
-        brain activity.
-      </p>
-    </section>
-
-    <section class="content-card">
-      <h2 class="card-title">The Solution: Graid</h2>
-      <p class="card-description">
-        Graid is a vision and voice AI tutor that reports student needs to
-        professors. Current AI solutions lean toward giving the answers; Graid
-        uses research-based tutoring principles to guide students through the
-        work instead of giving them the answers.
-      </p>
-      <p class="card-description">
-        Graid pinpoints exactly where students struggle—and turns that into
-        action for professors: suggesting personalized worksheets, and real-time
-        maps of class mastery. So professors can personalize learning without
-        guessing.
-      </p>
-      <p class="card-description">
-        Graid will also integrate with Canvas and other learning management
-        systems, and is fine-tuned to improve accuracy in recognizing
-        handwriting.
-      </p>
-    </section>
-
-    <section class="content-card">
-      <h2 class="card-title">The Market Opportunity</h2>
-      <p class="card-description">
-        The tutoring market is worth billions, and local universities spend
-        around $300K a year on math labs alone. We offer Graid to administrators
-        and capture these funds by enhancing learning, giving teachers
-        actionable insights, and giving administrators measurable proof of
-        impact.
-      </p>
-      <div class="button-group">
-        <button mat-raised-button color="primary" class="demo-button">
-          Schedule a Demo
-        </button>
-      </div>
-    </section>
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3 class="footer-title">Graid</h3>
-        <p class="footer-tagline">Vision and Voice AI Tutor</p>
-      </div>
-      <div class="footer-section">
-        <h4 class="footer-heading">Contact</h4>
-        <a href="mailto:ceo&#64;graid.org" class="footer-link"
-          >ceo&#64;graid.org</a
-        >
-      </div>
-      <div class="footer-section">
-        <h4 class="footer-heading">Links</h4>
-        <a href="#" class="footer-link">About Us</a>
-        <a href="mailto:ceo&#64;graid.org" class="footer-link">Contact Us</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; {{ currentYear }} Graid. All rights reserved.</p>
-    </div>
-  </footer>
+  <!-- Router Outlet -->
+  <router-outlet></router-outlet>
 </div>

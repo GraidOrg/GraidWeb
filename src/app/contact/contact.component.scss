@@ -1,0 +1,143 @@
+.contact-container {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+  background: var(--color-background);
+}
+
+.contact-content {
+  max-width: 700px;
+  width: 100%;
+  background: var(--color-surface);
+  padding: 48px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--shadow-primary);
+  border: 1px solid var(--color-border-light);
+  position: relative;
+  
+  // Metallic top border accent
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-metallic-silver);
+    border-radius: 8px 8px 0 0;
+  }
+
+  .contact-title {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: var(--color-text-primary);
+    text-align: center;
+  }
+
+  .contact-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-tertiary);
+    margin-bottom: 32px;
+    text-align: center;
+    line-height: 1.6;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .form-field {
+    width: 100%;
+
+    ::ng-deep .mat-mdc-text-field-wrapper {
+      background-color: var(--color-background);
+    }
+  }
+
+  .message-field {
+    ::ng-deep textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+  }
+
+  .submit-button {
+    font-size: 1.1rem;
+    padding: 12px 48px;
+    height: auto;
+    margin-top: 8px;
+    align-self: center;
+    min-width: 150px;
+  }
+
+  .success-message {
+    background: var(--color-success-light);
+    color: var(--color-success);
+    padding: 16px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 8px;
+    border-left: 3px solid var(--color-success);
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+    }
+  }
+
+  .error-message {
+    background: var(--color-error-light);
+    color: var(--color-error);
+    padding: 16px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 8px;
+    border-left: 3px solid var(--color-error);
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 40px 16px;
+  }
+
+  .contact-content {
+    padding: 32px 24px;
+
+    .contact-title {
+      font-size: 2rem;
+    }
+
+    .contact-subtitle {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-content {
+    padding: 24px 16px;
+
+    .contact-title {
+      font-size: 1.75rem;
+    }
+
+    .contact-form {
+      .submit-button {
+        width: 100%;
+      }
+    }
+  }
+}
+

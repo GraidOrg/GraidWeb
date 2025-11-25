@@ -1,0 +1,121 @@
+<div class="contact-container">
+  <div class="contact-content">
+    <h1 class="contact-title">
+      {{ formType === "demo" ? "Schedule a Demo" : "Contact Us" }}
+    </h1>
+    <p class="contact-subtitle">
+      {{
+        formType === "demo"
+          ? "Fill out the form below and we'll get back to you soon."
+          : "We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+      }}
+    </p>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+      <!-- Name Field -->
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required />
+        <mat-error *ngIf="isFieldInvalid('name')">
+          {{ getErrorMessage("name") }}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Email Field -->
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" required />
+        <mat-error *ngIf="isFieldInvalid('email')">
+          {{ getErrorMessage("email") }}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Demo-specific fields -->
+      <ng-container *ngIf="formType === 'demo'">
+        <!-- Institution Field -->
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Institution/Organization</mat-label>
+          <input matInput formControlName="institution" required />
+          <mat-error *ngIf="isFieldInvalid('institution')">
+            {{ getErrorMessage("institution") }}
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Role Field -->
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Role</mat-label>
+          <mat-select formControlName="role" required>
+            <mat-option value="Professor">Professor</mat-option>
+            <mat-option value="Administrator">Administrator</mat-option>
+            <mat-option value="Other">Other</mat-option>
+          </mat-select>
+          <mat-error *ngIf="isFieldInvalid('role')">
+            {{ getErrorMessage("role") }}
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Preferred Date Field -->
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Preferred Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="preferredDate" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <!-- Preferred Time Field -->
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Preferred Time</mat-label>
+          <input matInput type="time" formControlName="preferredTime" />
+        </mat-form-field>
+      </ng-container>
+
+      <!-- Contact-specific fields -->
+      <ng-container *ngIf="formType === 'contact'">
+        <!-- Subject Field -->
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Subject</mat-label>
+          <input matInput formControlName="subject" required />
+          <mat-error *ngIf="isFieldInvalid('subject')">
+            {{ getErrorMessage("subject") }}
+          </mat-error>
+        </mat-form-field>
+      </ng-container>
+
+      <!-- Message Field -->
+      <mat-form-field appearance="outline" class="form-field message-field">
+        <mat-label>Message</mat-label>
+        <textarea
+          matInput
+          formControlName="message"
+          rows="5"
+          [required]="formType === 'contact'"
+        ></textarea>
+        <mat-error *ngIf="isFieldInvalid('message')">
+          {{ getErrorMessage("message") }}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Success Message -->
+      <div *ngIf="submitSuccess" class="success-message">
+        <p>Thank you! Your message has been sent successfully. We'll get back to you soon.</p>
+      </div>
+
+      <!-- Error Message -->
+      <div *ngIf="submitError" class="error-message">
+        <p>Sorry, there was an error sending your message. Please try again later.</p>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        class="submit-button"
+        [disabled]="isSubmitting || contactForm.invalid"
+      >
+        {{ isSubmitting ? "Sending..." : "Submit" }}
+      </button>
+    </form>
+  </div>
+</div>
+

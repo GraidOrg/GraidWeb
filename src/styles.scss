@@ -1,4 +1,167 @@
-@import '@angular/material/prebuilt-themes/indigo-pink.css';
+// Angular Material Custom Theme
+@use "@angular/material" as mat;
+
+// Include the common styles for Angular Material
+@include mat.core();
+
+// Define the custom color palette
+$byu-blue-palette: (
+  50: #e3e8ed,
+  100: #b9c5d2,
+  200: #8a9eb4,
+  300: #5b7796,
+  400: #375980,
+  500: #002e5d,
+  // BYU Dark Blue - Primary
+  600: #002955,
+  700: #00234b,
+  800: #001d41,
+  900: #00122f,
+  A100: #6b8fff,
+  A200: #3865ff,
+  A400: #053bff,
+  A700: #0030eb,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: white,
+    A400: white,
+    A700: white,
+  ),
+);
+
+$metallic-silver-palette: (
+  50: #f5f5f5,
+  100: #e8e8e8,
+  200: #d4d4d4,
+  300: #c0c0c0,
+  400: #b3b3b3,
+  500: #a6a6a6,
+  // Metallic Silver
+  600: #9e9e9e,
+  700: #959595,
+  800: #8b8b8b,
+  900: #7b7b7b,
+  A100: #ffffff,
+  A200: #f5f5f5,
+  A400: #e0e0e0,
+  A700: #d4d4d4,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: rgba(black, 0.87),
+    600: rgba(black, 0.87),
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: rgba(black, 0.87),
+    A700: rgba(black, 0.87),
+  ),
+);
+
+// Create the theme
+$primary: mat.define-palette($byu-blue-palette);
+$accent: mat.define-palette($metallic-silver-palette);
+$warn: mat.define-palette(mat.$red-palette);
+
+$theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
+
+// Include theme styles
+@include mat.all-component-themes($theme);
+
+// ============================================
+// GLOBAL COLOR SYSTEM
+// ============================================
+// Primary: BYU Dark Blue - Excellence, integrity, intelligence
+// Secondary: Metallic Silver/Gold - Secure, private, pristine, high-quality, robust
+
+:root {
+  // Primary Colors - BYU Dark Blue
+  --color-primary: #002e5d;
+  --color-primary-light: #004080;
+  --color-primary-dark: #001d3d;
+  --color-primary-rgb: 0, 46, 93;
+
+  // Secondary Colors - Metallic Silver & Gold
+  --color-metallic-silver: #a6a6a6;
+  --color-metallic-silver-light: #d4d4d4;
+  --color-metallic-silver-dark: #808080;
+  --color-metallic-gold: #85754e;
+  --color-metallic-gold-light: #b8a67a;
+  --color-metallic-gold-dark: #5d4f35;
+
+  // Metallic Gradients for premium feel
+  --gradient-metallic-silver: linear-gradient(
+    135deg,
+    #d4d4d4 0%,
+    #a6a6a6 50%,
+    #808080 100%
+  );
+  --gradient-metallic-gold: linear-gradient(
+    135deg,
+    #b8a67a 0%,
+    #85754e 50%,
+    #5d4f35 100%
+  );
+  --gradient-metallic-combo: linear-gradient(
+    135deg,
+    #d4d4d4 0%,
+    #a6a6a6 25%,
+    #85754e 75%,
+    #5d4f35 100%
+  );
+
+  // Semantic Colors
+  --color-background: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-text-primary: #333333;
+  --color-text-secondary: #555555;
+  --color-text-tertiary: #666666;
+  --color-text-light: rgba(255, 255, 255, 0.9);
+  --color-text-muted: rgba(255, 255, 255, 0.7);
+
+  // Accent Colors
+  --color-accent-silver: var(--color-metallic-silver);
+  --color-accent-gold: var(--color-metallic-gold);
+
+  // Border Colors
+  --color-border-light: rgba(0, 46, 93, 0.1);
+  --color-border-metallic: var(--color-metallic-silver);
+
+  // Shadow Colors
+  --shadow-primary: rgba(0, 46, 93, 0.15);
+  --shadow-metallic: rgba(166, 166, 166, 0.2);
+
+  // Success/Error Colors (maintaining accessibility)
+  --color-success: #2e7d32;
+  --color-success-light: #e8f5e9;
+  --color-error: #c62828;
+  --color-error-light: #ffebee;
+}
 
 * {
   margin: 0;
@@ -7,12 +170,54 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
+// ============================================
+// COLOR UTILITY CLASSES
+// ============================================
+// Use these classes throughout the app for consistent color application
+
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
+.text-metallic-silver {
+  color: var(--color-metallic-silver) !important;
+}
+
+.text-metallic-gold {
+  color: var(--color-metallic-gold) !important;
+}
+
+.bg-primary {
+  background-color: var(--color-primary) !important;
+}
+
+.bg-metallic-silver {
+  background: var(--gradient-metallic-silver) !important;
+}
+
+.bg-metallic-gold {
+  background: var(--gradient-metallic-gold) !important;
+}
+
+.border-metallic {
+  border-color: var(--color-metallic-silver) !important;
+}
+
+.border-metallic-gold {
+  border-color: var(--color-metallic-gold) !important;
+}
+
+.shadow-metallic {
+  box-shadow: 0 4px 12px var(--shadow-metallic) !important;
+}
