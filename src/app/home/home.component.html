@@ -1,10 +1,16 @@
 <!-- Hero Section -->
-<section class="hero-section">
+<section class="hero-section" aria-labelledby="hero-title">
   <div class="hero-content">
-    <h2 class="hero-title">Vision and Voice AI Tutor</h2>
-    <h3 class="hero-subtitle">that Reports Student Needs to Professors</h3>
+    <h1 id="hero-title" class="hero-title">Vision and Voice AI Tutor</h1>
+    <h2 class="hero-subtitle">that Reports Student Needs to Professors</h2>
     <p class="hero-tagline">Personalize learning without guessing</p>
-    <button mat-raised-button color="primary" class="hero-button" (click)="navigateToScheduleDemo()">
+    <button
+      mat-raised-button
+      color="primary"
+      class="hero-button"
+      (click)="navigateToScheduleDemo()"
+      aria-label="Schedule a demo to learn more about Graid"
+    >
       Schedule a Demo
     </button>
   </div>
@@ -76,14 +82,25 @@
     </div>
     <div class="footer-section">
       <h4 class="footer-heading">Contact</h4>
-      <a href="mailto:ceo&#64;graid.org" class="footer-link"
+      <a
+        href="mailto:ceo&#64;graid.org"
+        class="footer-link"
+        aria-label="Send email to ceo@graid.org"
         >ceo&#64;graid.org</a
       >
     </div>
     <div class="footer-section">
       <h4 class="footer-heading">Links</h4>
-      <a href="#" class="footer-link">About Us</a>
-      <a (click)="navigateToContact()" class="footer-link" style="cursor: pointer;">Contact Us</a>
+      <a
+        (click)="navigateToContact()"
+        class="footer-link"
+        role="button"
+        tabindex="0"
+        aria-label="Navigate to contact page"
+        (keydown.enter)="navigateToContact()"
+        (keydown.space)="navigateToContact()"
+        >Contact Us</a
+      >
     </div>
   </div>
   <div class="footer-bottom">

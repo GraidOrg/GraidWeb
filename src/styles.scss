@@ -169,6 +169,23 @@ $theme: mat.define-light-theme(
   box-sizing: border-box;
 }
 
+// Skip to main content link for accessibility
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: var(--color-text-light);
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+  border-radius: 0 0 4px 0;
+
+  &:focus {
+    top: 0;
+  }
+}
+
 body {
   font-family: "Roboto", sans-serif;
   line-height: 1.6;

@@ -21,6 +21,24 @@
     align-items: center;
   }
 
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+    
+    .logo {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+  }
+
   .main-title {
     font-size: 2rem;
     font-weight: 500;
@@ -45,6 +63,12 @@
     .header-content {
       flex-direction: column;
       gap: 16px;
+    }
+
+    .logo-container {
+      .logo {
+        height: 32px;
+      }
     }
 
     .main-title {

@@ -1,21 +1,25 @@
 <div class="contact-container">
-  <div class="contact-content">
-    <h1 class="contact-title">
-      {{ formType === "demo" ? "Schedule a Demo" : "Contact Us" }}
-    </h1>
-    <p class="contact-subtitle">
-      {{
-        formType === "demo"
-          ? "Fill out the form below and we'll get back to you soon."
-          : "We'd love to hear from you. Send us a message and we'll respond as soon as possible."
-      }}
-    </p>
+  <div class="contact-content" role="region" aria-labelledby="contact-title">
+    <h1 id="contact-title" class="contact-title">{{ formTitle }}</h1>
+    <p class="contact-subtitle">{{ formSubtitle }}</p>
 
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+    <form
+      [formGroup]="contactForm"
+      (ngSubmit)="onSubmit()"
+      class="contact-form"
+      novalidate
+      aria-label="Contact form"
+    >
       <!-- Name Field -->
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>Name</mat-label>
-        <input matInput formControlName="name" required />
+        <input
+          matInput
+          formControlName="name"
+          required
+          aria-required="true"
+          autocomplete="name"
+        />
         <mat-error *ngIf="isFieldInvalid('name')">
           {{ getErrorMessage("name") }}
         </mat-error>
@@ -24,18 +28,31 @@
       <!-- Email Field -->
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>Email</mat-label>
-        <input matInput type="email" formControlName="email" required />
+        <input
+          matInput
+          type="email"
+          formControlName="email"
+          required
+          aria-required="true"
+          autocomplete="email"
+        />
         <mat-error *ngIf="isFieldInvalid('email')">
           {{ getErrorMessage("email") }}
         </mat-error>
       </mat-form-field>
 
       <!-- Demo-specific fields -->
-      <ng-container *ngIf="formType === 'demo'">
+      <ng-container *ngIf="formType === constants.FORM_TYPES.DEMO">
         <!-- Institution Field -->
         <mat-form-field appearance="outline" class="form-field">
           <mat-label>Institution/Organization</mat-label>
-          <input matInput formControlName="institution" required />
+          <input
+            matInput
+            formControlName="institution"
+            required
+            aria-required="true"
+            autocomplete="organization"
+          />
           <mat-error *ngIf="isFieldInvalid('institution')">
             {{ getErrorMessage("institution") }}
           </mat-error>
@@ -70,11 +87,16 @@
       </ng-container>
 
       <!-- Contact-specific fields -->
-      <ng-container *ngIf="formType === 'contact'">
+      <ng-container *ngIf="formType === constants.FORM_TYPES.CONTACT">
         <!-- Subject Field -->
         <mat-form-field appearance="outline" class="form-field">
           <mat-label>Subject</mat-label>
-          <input matInput formControlName="subject" required />
+          <input
+            matInput
+            formControlName="subject"
+            required
+            aria-required="true"
+          />
           <mat-error *ngIf="isFieldInvalid('subject')">
             {{ getErrorMessage("subject") }}
           </mat-error>
@@ -88,7 +110,8 @@
           matInput
           formControlName="message"
           rows="5"
-          [required]="formType === 'contact'"
+          [required]="formType === constants.FORM_TYPES.CONTACT"
+          [attr.aria-required]="formType === constants.FORM_TYPES.CONTACT"
         ></textarea>
         <mat-error *ngIf="isFieldInvalid('message')">
           {{ getErrorMessage("message") }}
@@ -96,13 +119,29 @@
       </mat-form-field>
 
       <!-- Success Message -->
-      <div *ngIf="submitSuccess" class="success-message">
-        <p>Thank you! Your message has been sent successfully. We'll get back to you soon.</p>
+      <div
+        *ngIf="submitSuccess"
+        class="success-message"
+        role="alert"
+        aria-live="polite"
+      >
+        <p>{{ constants.MESSAGES.FORM_SUBMIT_SUCCESS }}</p>
       </div>
 
       <!-- Error Message -->
-      <div *ngIf="submitError" class="error-message">
-        <p>Sorry, there was an error sending your message. Please try again later.</p>
+      <div
+        *ngIf="submitError"
+        class="error-message"
+        role="alert"
+        aria-live="assertive"
+      >
+        <p><strong>{{ constants.MESSAGES.FORM_SUBMIT_ERROR }}</strong></p>
+        <p *ngIf="errorMessage" style="margin-top: 8px; font-size: 0.9rem;">
+          {{ errorMessage }}
+        </p>
+        <p *ngIf="!environment.production" style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">
+          Check the browser console for more details.
+        </p>
       </div>
 
       <!-- Submit Button -->
@@ -112,8 +151,9 @@
         type="submit"
         class="submit-button"
         [disabled]="isSubmitting || contactForm.invalid"
+        [attr.aria-busy]="isSubmitting"
       >
-        {{ isSubmitting ? "Sending..." : "Submit" }}
+        {{ isSubmitting ? 'Sending...' : 'Submit' }}
       </button>
     </form>
   </div>
