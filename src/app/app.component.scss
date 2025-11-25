@@ -2,22 +2,19 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: #f5f7fa;
 }
 
-// Header Toolbar
-.header-toolbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+// Header
+.header {
+  background: #1976d2;
+  color: white;
+  padding: 20px 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
-  .toolbar-content {
-    width: 100%;
+  .header-content {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
     padding: 0 24px;
   }
 
@@ -25,11 +22,6 @@
     font-size: 2rem;
     font-weight: 500;
     margin: 0;
-    color: white;
-  }
-
-  .spacer {
-    flex: 1 1 auto;
   }
 }
 
@@ -71,10 +63,6 @@
     font-size: 1.2rem;
     padding: 16px 48px;
     height: auto;
-
-    mat-icon {
-      margin-right: 8px;
-    }
   }
 }
 
@@ -91,9 +79,11 @@
 
 // Content Cards
 .content-card {
-  margin-bottom: 0;
+  background: white;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 12px;
 
   &:hover {
     transform: translateY(-4px);
@@ -104,35 +94,17 @@
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     color: white;
 
-    .mat-mdc-card-title {
+    .card-title,
+    .card-description {
       color: white;
     }
-
-    .card-description {
-      color: rgba(255, 255, 255, 0.95);
-    }
   }
 
-  mat-card-header {
-    margin-bottom: 16px;
-  }
-
-  .mat-mdc-card-title {
+  .card-title {
     font-size: 1.8rem;
     font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .card-icon {
-    font-size: 2rem;
-    width: 2rem;
-    height: 2rem;
-  }
-
-  mat-card-content {
-    padding-top: 0;
+    margin-bottom: 20px;
+    color: #333;
   }
 
   .card-description {
@@ -149,15 +121,25 @@
     font-weight: 500;
   }
 
-  mat-list {
-    padding-top: 0;
+  .stat-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
-    mat-list-item {
-      height: auto;
+    li {
       padding: 12px 0;
+      padding-left: 24px;
+      position: relative;
+      color: #555;
+      font-size: 1.1rem;
 
-      mat-icon {
+      &::before {
+        content: "•";
+        position: absolute;
+        left: 8px;
         color: #1976d2;
+        font-size: 1.5rem;
+        font-weight: bold;
       }
     }
   }
@@ -174,28 +156,14 @@
   font-size: 1.1rem;
   padding: 12px 32px;
   margin: 8px;
-
-  mat-icon {
-    margin-right: 8px;
-  }
 }
 
 // Footer
 .footer {
   margin-top: auto;
-  padding: 0;
+  padding: 48px 24px 24px;
   background: #2c3e50;
-
-  .footer-card {
-    margin: 0;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-
-    mat-card-content {
-      padding: 48px 24px 24px;
-    }
-  }
+  color: white;
 
   .footer-content {
     max-width: 1200px;
@@ -207,7 +175,7 @@
   }
 
   .footer-section {
-    h3.footer-title {
+    .footer-title {
       font-size: 1.5rem;
       font-weight: 500;
       color: white;
@@ -220,7 +188,7 @@
       margin: 0;
     }
 
-    h4.footer-heading {
+    .footer-heading {
       font-size: 1.1rem;
       font-weight: 500;
       color: white;
@@ -228,20 +196,12 @@
     }
 
     .footer-link {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      display: block;
       color: rgba(255, 255, 255, 0.8);
       text-decoration: none;
       font-size: 1rem;
       margin-bottom: 12px;
       transition: color 0.3s ease;
-
-      mat-icon {
-        font-size: 1.2rem;
-        width: 1.2rem;
-        height: 1.2rem;
-      }
 
       &:hover {
         color: white;
@@ -267,7 +227,7 @@
 
 // Responsive Design
 @media (max-width: 768px) {
-  .header-toolbar {
+  .header {
     .main-title {
       font-size: 1.5rem;
     }
@@ -295,14 +255,8 @@
   }
 
   .content-card {
-    .mat-mdc-card-title {
+    .card-title {
       font-size: 1.4rem;
-    }
-
-    .card-icon {
-      font-size: 1.5rem;
-      width: 1.5rem;
-      height: 1.5rem;
     }
   }
 
@@ -334,4 +288,3 @@
     margin: 8px 0;
   }
 }
-
