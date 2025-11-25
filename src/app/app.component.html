@@ -1,50 +1,134 @@
-<div class="container">
-  <header class="header">
-    <h1 class="main-title">Graid</h1>
-    <h2 class="subtitle">Vision and Voice AI Tutor that Reports Learning to Teachers</h2>
-    <h3 class="tagline">Replace AI Cheating with AI Learning</h3>
-  </header>
+<div class="app-container">
+  <!-- Header Toolbar -->
+  <mat-toolbar color="primary" class="header-toolbar">
+    <div class="toolbar-content">
+      <h1 class="main-title">Graid</h1>
+      <span class="spacer"></span>
+    </div>
+  </mat-toolbar>
 
+  <!-- Hero Section -->
   <section class="hero-section">
-    <button mat-raised-button color="primary" class="demo-button">Schedule a Demo</button>
-  </section>
-
-  <section class="content-section">
-    <h2 class="section-title">Don't let AI cheating devalue a college degree</h2>
-    <p class="stat-text">According to BestColleges, 56% of college students cheat with AI:</p>
-    <ul class="stat-list">
-      <li>to do busy work</li>
-      <li>to pass exams</li>
-      <li>to complete assignments sooner</li>
-    </ul>
-  </section>
-
-  <section class="content-section">
-    <h2 class="section-title">Replace AI cheating with AI learning, and get visual reports on each student's learning sessions</h2>
-    <div class="button-group">
-      <button mat-raised-button color="primary" class="demo-button">Schedule a Demo</button>
+    <div class="hero-content">
+      <h2 class="hero-title">Vision and Voice AI Tutor</h2>
+      <h3 class="hero-subtitle">that Reports Learning to Teachers</h3>
+      <p class="hero-tagline">Replace AI Cheating with AI Learning</p>
+      <button mat-raised-button color="primary" class="hero-button" size="large">
+        <mat-icon>calendar_today</mat-icon>
+        Schedule a Demo
+      </button>
     </div>
   </section>
 
-  <section class="content-section">
-    <h2 class="section-title">Enhance Student Learning</h2>
-    <div class="button-group">
-      <button mat-raised-button color="primary" class="demo-button">Schedule a Demo</button>
-    </div>
-  </section>
+  <!-- Content Sections -->
+  <div class="content-wrapper">
+    <mat-card class="content-card">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon class="card-icon">warning</mat-icon>
+          Don't let AI cheating devalue a college degree
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="stat-text">According to BestColleges, 56% of college students cheat with AI:</p>
+        <mat-list>
+          <mat-list-item>
+            <mat-icon matListItemIcon>check_circle</mat-icon>
+            <span matListItemTitle>to do busy work</span>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon matListItemIcon>check_circle</mat-icon>
+            <span matListItemTitle>to pass exams</span>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon matListItemIcon>check_circle</mat-icon>
+            <span matListItemTitle>to complete assignments sooner</span>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
 
-  <section class="content-section">
-    <h2 class="section-title">Download our AI Map for replacing AI cheating with AI learning without our service</h2>
-    <div class="button-group">
-      <button mat-raised-button color="accent" class="demo-button">Download AI Map</button>
-    </div>
-  </section>
+    <mat-card class="content-card">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon class="card-icon">school</mat-icon>
+          Replace AI cheating with AI learning
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="card-description">Get visual reports on each student's learning sessions</p>
+        <div class="button-group">
+          <button mat-raised-button color="primary" class="demo-button">
+            <mat-icon>calendar_today</mat-icon>
+            Schedule a Demo
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
 
+    <mat-card class="content-card">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon class="card-icon">trending_up</mat-icon>
+          Enhance Student Learning
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="button-group">
+          <button mat-raised-button color="primary" class="demo-button">
+            <mat-icon>calendar_today</mat-icon>
+            Schedule a Demo
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="content-card accent-card">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon class="card-icon">download</mat-icon>
+          Download our AI Map
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="card-description">Replace AI cheating with AI learning without our service</p>
+        <div class="button-group">
+          <button mat-raised-button color="accent" class="demo-button">
+            <mat-icon>file_download</mat-icon>
+            Download AI Map
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Footer -->
   <footer class="footer">
-    <div class="footer-links">
-      <a href="#" class="footer-link">About Us</a>
-      <a href="#" class="footer-link">Contact Us</a>
-    </div>
+    <mat-card class="footer-card">
+      <mat-card-content>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3 class="footer-title">Graid</h3>
+            <p class="footer-tagline">Vision and Voice AI Tutor</p>
+          </div>
+          <div class="footer-section">
+            <h4 class="footer-heading">Contact</h4>
+            <a href="mailto:ceo&#64;graid.org" class="footer-link">
+              <mat-icon>email</mat-icon>
+              ceo&#64;graid.org
+            </a>
+          </div>
+          <div class="footer-section">
+            <h4 class="footer-heading">Links</h4>
+            <a href="#" class="footer-link">About Us</a>
+            <a href="mailto:ceo&#64;graid.org" class="footer-link">Contact Us</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; {{ currentYear }} Graid. All rights reserved.</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
   </footer>
 </div>
 
