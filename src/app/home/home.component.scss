@@ -104,6 +104,23 @@
   }
 }
 
+.video-embed-wrapper {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto 24px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px var(--shadow-primary);
+  border: 1px solid var(--color-border-light);
+}
+
+.video-embed {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
 .button-group {
   margin-top: 24px;
   display: flex;
