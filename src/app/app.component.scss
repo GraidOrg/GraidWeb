@@ -2,20 +2,20 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--color-background);
+  background: #ffffff;
+  color: #000000;
 }
 
 .header {
-  background: var(--color-primary);
-  color: var(--color-text-light);
-  padding: 20px 0;
-  box-shadow: 0 2px 8px var(--shadow-primary);
-  border-bottom: 2px solid var(--color-metallic-silver);
+  background: #ffffff;
+  color: #000000;
+  padding: 18px 0;
+  border-bottom: 1px solid #e0e0e0;
 
   .header-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 28px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,25 +24,26 @@
   .logo-container {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     cursor: pointer;
     transition: opacity 0.2s ease;
-    
+
     &:hover {
-      opacity: 0.8;
+      opacity: 0.7;
     }
-    
+
     .logo {
-      height: 40px;
+      height: 42px;
       width: auto;
       object-fit: contain;
     }
   }
 
   .main-title {
-    font-size: 2rem;
-    font-weight: 500;
+    font-size: 1.65rem;
+    font-weight: 600;
     margin: 0;
+    color: #000000;
   }
 
   .header-navbar {
@@ -51,9 +52,10 @@
     gap: 16px;
 
     .navbar-button {
-      font-size: 1rem;
-      padding: 8px 24px;
+      font-size: 0.95rem;
+      padding: 10px 26px;
       height: auto;
+      border-radius: var(--radius-sm);
     }
   }
 }
@@ -63,16 +65,15 @@
     .header-content {
       flex-direction: column;
       gap: 16px;
+      padding: 0 20px;
     }
 
-    .logo-container {
-      .logo {
-        height: 32px;
-      }
+    .logo-container .logo {
+      height: 34px;
     }
 
     .main-title {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     }
 
     .header-navbar {
@@ -83,13 +84,9 @@
 }
 
 @media (max-width: 480px) {
-  .header {
-    .header-navbar {
-      .navbar-button {
-        width: 100%;
-        font-size: 0.9rem;
-        padding: 10px 20px;
-      }
-    }
+  .header .header-navbar .navbar-button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 12px 20px;
   }
 }

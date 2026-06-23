@@ -1,26 +1,58 @@
 // Angular Material Custom Theme
 @use "@angular/material" as mat;
 
-// Include the common styles for Angular Material
 @include mat.core();
 
-// Define the custom color palette
-$byu-blue-palette: (
-  50: #e3e8ed,
-  100: #b9c5d2,
-  200: #8a9eb4,
-  300: #5b7796,
-  400: #375980,
-  500: #002e5d,
-  // BYU Dark Blue - Primary
-  600: #002955,
-  700: #00234b,
-  800: #001d41,
-  900: #00122f,
-  A100: #6b8fff,
-  A200: #3865ff,
-  A400: #053bff,
-  A700: #0030eb,
+// Primary — Deep Purple (#4b006e)
+$primary-palette: (
+  50: #f5eff8,
+  100: #e8d4f0,
+  200: #d1a9e1,
+  300: #b67dcc,
+  400: #8f3da8,
+  500: #4b006e,
+  600: #3f005c,
+  700: #33004a,
+  800: #270038,
+  900: #1a0026,
+  A100: #e1bee7,
+  A200: #ce93d8,
+  A400: #ab47bc,
+  A700: #7b1fa2,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: white,
+    A700: white,
+  ),
+);
+
+// Secondary — Gold (#6e4b00)
+$accent-palette: (
+  50: #faf6ee,
+  100: #f2e8cc,
+  200: #e4cf99,
+  300: #d0b05c,
+  400: #9a7420,
+  500: #6e4b00,
+  600: #5c3f00,
+  700: #4a3300,
+  800: #382700,
+  900: #261b00,
+  A100: #ffe082,
+  A200: #ffd54f,
+  A400: #ffc107,
+  A700: #ff8f00,
   contrast: (
     50: rgba(black, 0.87),
     100: rgba(black, 0.87),
@@ -33,49 +65,14 @@ $byu-blue-palette: (
     800: white,
     900: white,
     A100: rgba(black, 0.87),
-    A200: white,
-    A400: white,
-    A700: white,
-  ),
-);
-
-$metallic-silver-palette: (
-  50: #f5f5f5,
-  100: #e8e8e8,
-  200: #d4d4d4,
-  300: #c0c0c0,
-  400: #b3b3b3,
-  500: #a6a6a6,
-  // Metallic Silver
-  600: #9e9e9e,
-  700: #959595,
-  800: #8b8b8b,
-  900: #7b7b7b,
-  A100: #ffffff,
-  A200: #f5f5f5,
-  A400: #e0e0e0,
-  A700: #d4d4d4,
-  contrast: (
-    50: rgba(black, 0.87),
-    100: rgba(black, 0.87),
-    200: rgba(black, 0.87),
-    300: rgba(black, 0.87),
-    400: rgba(black, 0.87),
-    500: rgba(black, 0.87),
-    600: rgba(black, 0.87),
-    700: white,
-    800: white,
-    900: white,
-    A100: rgba(black, 0.87),
     A200: rgba(black, 0.87),
     A400: rgba(black, 0.87),
     A700: rgba(black, 0.87),
   ),
 );
 
-// Create the theme
-$primary: mat.define-palette($byu-blue-palette);
-$accent: mat.define-palette($metallic-silver-palette);
+$primary: mat.define-palette($primary-palette);
+$accent: mat.define-palette($accent-palette);
 $warn: mat.define-palette(mat.$red-palette);
 
 $theme: mat.define-light-theme(
@@ -85,82 +82,74 @@ $theme: mat.define-light-theme(
       accent: $accent,
       warn: $warn,
     ),
-    typography: mat.define-typography-config(),
+    typography: mat.define-typography-config(
+      $font-family: '"Times New Roman", Times, serif',
+    ),
     density: 0,
   )
 );
 
-// Include theme styles
 @include mat.all-component-themes($theme);
 
 // ============================================
 // GLOBAL COLOR SYSTEM
 // ============================================
-// Primary: BYU Dark Blue - Excellence, integrity, intelligence
-// Secondary: Metallic Silver/Gold - Secure, private, pristine, high-quality, robust
-
 :root {
-  // Primary Colors - BYU Dark Blue
-  --color-primary: #002e5d;
-  --color-primary-light: #004080;
-  --color-primary-dark: #001d3d;
-  --color-primary-rgb: 0, 46, 93;
+  --color-primary: #4b006e;
+  --color-primary-light: #6b1a94;
+  --color-primary-dark: #2d0042;
+  --color-primary-rgb: 75, 0, 110;
 
-  // Secondary Colors - Metallic Silver & Gold
-  --color-metallic-silver: #a6a6a6;
-  --color-metallic-silver-light: #d4d4d4;
-  --color-metallic-silver-dark: #808080;
-  --color-metallic-gold: #85754e;
-  --color-metallic-gold-light: #b8a67a;
-  --color-metallic-gold-dark: #5d4f35;
+  --color-secondary-gold: #6e4b00;
+  --color-secondary-gold-light: #9a6f1a;
+  --color-secondary-gold-dark: #4a3200;
 
-  // Metallic Gradients for premium feel
-  --gradient-metallic-silver: linear-gradient(
-    135deg,
-    #d4d4d4 0%,
-    #a6a6a6 50%,
-    #808080 100%
-  );
-  --gradient-metallic-gold: linear-gradient(
-    135deg,
-    #b8a67a 0%,
-    #85754e 50%,
-    #5d4f35 100%
-  );
-  --gradient-metallic-combo: linear-gradient(
-    135deg,
-    #d4d4d4 0%,
-    #a6a6a6 25%,
-    #85754e 75%,
-    #5d4f35 100%
-  );
+  --color-secondary-teal: #006e4b;
+  --color-secondary-teal-light: #1a8f6a;
+  --color-secondary-teal-dark: #004d35;
 
-  // Semantic Colors
-  --color-background: #f5f7fa;
+  // Legacy aliases (used in component styles)
+  --color-metallic-silver: #c4c0c8;
+  --color-metallic-silver-light: #e8e6ec;
+  --color-metallic-silver-dark: #9a96a0;
+  --color-metallic-gold: var(--color-secondary-gold);
+  --color-metallic-gold-light: var(--color-secondary-gold-light);
+  --color-metallic-gold-dark: var(--color-secondary-gold-dark);
+
+  --gradient-brand: #ffffff;
+  --gradient-accent: #ffffff;
+  --gradient-metallic-silver: #ffffff;
+  --gradient-metallic-gold: #ffffff;
+  --gradient-metallic-combo: #ffffff;
+
+  --color-background: #ffffff;
   --color-surface: #ffffff;
-  --color-text-primary: #333333;
-  --color-text-secondary: #555555;
-  --color-text-tertiary: #666666;
-  --color-text-light: rgba(255, 255, 255, 0.9);
-  --color-text-muted: rgba(255, 255, 255, 0.7);
+  --color-text-primary: #000000;
+  --color-text-secondary: #000000;
+  --color-text-tertiary: #000000;
+  --color-text-light: #000000;
+  --color-text-muted: #000000;
 
-  // Accent Colors
-  --color-accent-silver: var(--color-metallic-silver);
-  --color-accent-gold: var(--color-metallic-gold);
+  --color-accent-gold: #000000;
+  --color-accent-teal: #000000;
 
-  // Border Colors
-  --color-border-light: rgba(0, 46, 93, 0.1);
-  --color-border-metallic: var(--color-metallic-silver);
+  --color-border-light: #e0e0e0;
+  --color-border-metallic: #e0e0e0;
 
-  // Shadow Colors
-  --shadow-primary: rgba(0, 46, 93, 0.15);
-  --shadow-metallic: rgba(166, 166, 166, 0.2);
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-primary: transparent;
+  --shadow-metallic: transparent;
 
-  // Success/Error Colors (maintaining accessibility)
-  --color-success: #2e7d32;
-  --color-success-light: #e8f5e9;
-  --color-error: #c62828;
-  --color-error-light: #ffebee;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --color-success: #000000;
+  --color-success-light: #ffffff;
+  --color-error: #000000;
+  --color-error-light: #ffffff;
 }
 
 * {
@@ -169,17 +158,18 @@ $theme: mat.define-light-theme(
   box-sizing: border-box;
 }
 
-// Skip to main content link for accessibility
 .skip-link {
   position: absolute;
   top: -40px;
   left: 0;
-  background: var(--color-primary);
-  color: var(--color-text-light);
-  padding: 8px;
+  background: #ffffff;
+  color: #000000;
+  padding: 8px 16px;
   text-decoration: none;
   z-index: 100;
-  border-radius: 0 0 4px 0;
+  border-radius: 0 0 var(--radius-sm) 0;
+  font-weight: 500;
+  border: 1px solid #000000;
 
   &:focus {
     top: 0;
@@ -187,10 +177,12 @@ $theme: mat.define-light-theme(
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  line-height: 1.6;
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1.65;
   color: var(--color-text-primary);
   background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html,
@@ -198,13 +190,38 @@ body {
   height: 100%;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+// Material button — neutral white/black for now
+.mat-mdc-raised-button.mat-primary,
+.mat-mdc-raised-button.mat-accent {
+  --mdc-protected-button-container-color: #ffffff;
+  --mdc-protected-button-label-text-color: #000000;
+  --mdc-protected-button-container-elevation-shadow: none;
+  border: 1px solid #000000;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
 // ============================================
 // COLOR UTILITY CLASSES
 // ============================================
-// Use these classes throughout the app for consistent color application
-
 .text-primary {
   color: var(--color-primary) !important;
+}
+
+.text-secondary-gold {
+  color: var(--color-secondary-gold) !important;
+}
+
+.text-secondary-teal {
+  color: var(--color-secondary-teal) !important;
 }
 
 .text-metallic-silver {
@@ -219,22 +236,19 @@ body {
   background-color: var(--color-primary) !important;
 }
 
-.bg-metallic-silver {
-  background: var(--gradient-metallic-silver) !important;
-}
-
+.bg-metallic-silver,
 .bg-metallic-gold {
-  background: var(--gradient-metallic-gold) !important;
+  background: var(--gradient-accent) !important;
 }
 
 .border-metallic {
-  border-color: var(--color-metallic-silver) !important;
+  border-color: var(--color-border-metallic) !important;
 }
 
 .border-metallic-gold {
-  border-color: var(--color-metallic-gold) !important;
+  border-color: var(--color-secondary-gold) !important;
 }
 
 .shadow-metallic {
-  box-shadow: 0 4px 12px var(--shadow-metallic) !important;
+  box-shadow: var(--shadow-md) !important;
 }
