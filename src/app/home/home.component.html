@@ -1,13 +1,11 @@
 <!-- Hero Section -->
 <section class="hero-section" aria-labelledby="hero-title">
   <div class="hero-content">
-    <h1 id="hero-title" class="hero-title">Vision and Voice AI Tutor</h1>
-    <h2 class="hero-subtitle">that Reports Student Needs to Professors</h2>
-    <p class="hero-tagline">Personalize learning without guessing</p>
+    <h1 id="hero-title" class="hero-title">An AI Tutor that Empowers Instructors</h1>
     <button
       mat-raised-button
-      color="accent"
-      class="hero-button"
+      color="primary"
+      class="hero-button schedule-demo-button"
       (click)="navigateToScheduleDemo()"
       aria-label="Schedule a demo to learn more about Graid"
     >
@@ -18,76 +16,171 @@
 
 <!-- Content Sections -->
 <div class="content-wrapper">
-  <section class="content-card">
-    <h2 class="card-title">
-      The Problem: Professors Can't Personalize Learning
+  <section class="section-accent-heading" aria-labelledby="problem-title">
+    <h2 id="problem-title" class="section-accent-heading__title">
+      AI shouldn't make instructors' jobs harder
     </h2>
-    <p class="card-description">
-      Professors struggle to personalize learning according to student needs
-      because they don't know what everyone's individual needs are. We spoke
-      with over 200 professors and they see AI's potential to personalize
-      learning, but they can't influence how students use the AI.
-    </p>
-    <p class="card-description">
-      Research shows that students who use AI effectively can get better test
-      scores, but MIT research showed that students misusing AI leads to less
-      brain activity.
-    </p>
   </section>
 
-  <section class="content-card">
-    <h2 class="card-title">The Solution: Graid</h2>
+  <section class="tutoring-video-section" aria-label="Tutoring demonstration video">
     <div class="video-embed-wrapper">
-      <iframe
-        class="video-embed"
-        src="https://www.youtube-nocookie.com/embed/z0_wQH9Eikk?rel=0"
-        title="Graid product walkthrough"
-        loading="lazy"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
+      <video
+        class="tutoring-video"
+        controls
+        playsinline
+        preload="metadata"
+        aria-label="Graid tutoring demonstration"
+      >
+        <source src="assets/images/Tutoring.mp4" type="video/mp4" />
+        Your browser does not support embedded videos.
+      </video>
     </div>
-    <p class="card-description">
-      Graid is a vision and voice AI tutor that reports student needs to
-      professors. Current AI solutions lean toward giving the answers; Graid
-      uses research-based tutoring principles to guide students through the
-      work instead of giving them the answers.
-    </p>
-    <p class="card-description">
-      Graid pinpoints exactly where students struggle—and turns that into
-      action for professors: suggesting personalized worksheets, and real-time
-      maps of class mastery. So professors can personalize learning without
-      guessing.
-    </p>
-    <p class="card-description">
-      Graid will also integrate with Canvas and other learning management
-      systems, and is fine-tuned to improve accuracy in recognizing
-      handwriting.
-    </p>
   </section>
 
-  <section class="content-card">
-    <h2 class="card-title">The Market Opportunity</h2>
-    <p class="card-description">
-      The tutoring market is worth billions, and local universities spend
-      around $300K a year on math labs alone. We offer Graid to administrators
-      and capture these funds by enhancing learning, giving teachers
-      actionable insights, and giving administrators measurable proof of
-      impact.
-    </p>
-    <div class="button-group">
-      <button mat-raised-button color="primary" class="demo-button" (click)="navigateToScheduleDemo()">
-        Schedule a Demo
-      </button>
+  <section class="section-accent-heading" aria-labelledby="vision-title">
+    <h2 id="vision-title" class="section-accent-heading__title">
+      A Vision and Voice AI Tutor that:
+    </h2>
+    <ul class="vision-features">
+      <li>
+        <mat-icon class="vision-features__icon" aria-hidden="true">support_agent</mat-icon>
+        <span>Tutors like a live person</span>
+      </li>
+      <li>
+        <img
+          src="assets/images/a_plus.jpg"
+          alt=""
+          class="vision-features__icon vision-features__icon--image"
+          aria-hidden="true"
+        />
+        <span>Grades students based on participation</span>
+      </li>
+      <li>
+        <img
+          src="assets/images/black_canvas_icon.svg"
+          alt=""
+          class="vision-features__icon vision-features__icon--canvas"
+          aria-hidden="true"
+        />
+        <span>Integrates with Canvas</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="process-steps" aria-label="How Graid works">
+    <div class="process-steps__item" *ngFor="let step of processSteps; let i = index">
+      <mat-icon class="process-steps__icon" aria-hidden="true">{{ step.icon }}</mat-icon>
+      <p class="process-steps__number">{{ i + 1 }}</p>
+      <p class="process-steps__label">{{ step.label }}</p>
+    </div>
+  </section>
+
+  <div class="process-steps-cta">
+    <button
+      mat-raised-button
+      color="primary"
+      class="process-steps-button schedule-demo-button"
+      (click)="navigateToScheduleDemo()"
+      aria-label="Schedule a demo"
+    >
+      Schedule a Demo
+    </button>
+  </div>
+
+  <section class="testimonials-section" aria-labelledby="testimonials-title">
+    <div class="testimonials-section__box">
+      <h2 id="testimonials-title" class="testimonials-section__title">Testimonials</h2>
+
+      <div class="testimonials-carousel">
+        <button
+          type="button"
+          class="testimonials-carousel__arrow"
+          (click)="prevTestimonial()"
+          aria-label="Previous testimonial"
+        >
+          <mat-icon aria-hidden="true">chevron_left</mat-icon>
+        </button>
+
+        <div
+          class="testimonials-carousel__viewport"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <blockquote
+            *ngFor="let testimonial of testimonials; let i = index"
+            class="testimonial"
+            [class.testimonial--active]="i === activeTestimonialIndex"
+            [attr.aria-hidden]="i !== activeTestimonialIndex"
+          >
+            <p class="testimonial__text">
+              <span class="testimonial__quote" aria-hidden="true">"</span>{{ testimonial.quote }}<span class="testimonial__quote" aria-hidden="true">"</span>
+            </p>
+            <footer class="testimonial__attribution">{{ testimonial.attribution }}</footer>
+          </blockquote>
+        </div>
+
+        <button
+          type="button"
+          class="testimonials-carousel__arrow"
+          (click)="nextTestimonial()"
+          aria-label="Next testimonial"
+        >
+          <mat-icon aria-hidden="true">chevron_right</mat-icon>
+        </button>
+      </div>
+
+      <div class="testimonials-carousel__dots" role="tablist" aria-label="Testimonial navigation">
+        <button
+          *ngFor="let testimonial of testimonials; let i = index"
+          type="button"
+          class="testimonials-carousel__dot"
+          [class.testimonials-carousel__dot--active]="i === activeTestimonialIndex"
+          (click)="goToTestimonial(i)"
+          [attr.aria-label]="'Go to testimonial ' + (i + 1)"
+          [attr.aria-selected]="i === activeTestimonialIndex"
+          role="tab"
+        ></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing-question" aria-label="Closing question">
+    <p class="closing-question__prompt">Should instructors be focused on</p>
+    <div class="closing-question__choices">
+      <div class="cheatgpt-badge">CheatGPT</div>
+      <div class="closing-question__or" aria-hidden="true">
+        <span>or</span>
+      </div>
+      <div class="ai-learning-badge">
+        <span>AI-Enhanced</span>
+        <span>Learning</span>
+      </div>
     </div>
   </section>
 </div>
+
+<section class="guide-download-section" aria-labelledby="guide-download-title">
+  <h2 id="guide-download-title" class="guide-download-section__title">
+    Download Our Free PDF<br />
+    "The University Admin's AI Paradox"
+  </h2>
+  <button
+    mat-raised-button
+    color="primary"
+    type="button"
+    class="guide-download-button schedule-demo-button"
+    (click)="navigateToScheduleDemo()"
+    aria-label="Schedule a demo"
+  >
+    Download
+  </button>
+</section>
 
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-content">
     <div class="footer-section">
-      <h3 class="footer-title">Graid</h3>
+      <h3 class="footer-title">Gr<span class="brand-ai">ai</span>d</h3>
       <p class="footer-tagline">Vision and Voice AI Tutor</p>
     </div>
     <div class="footer-section">

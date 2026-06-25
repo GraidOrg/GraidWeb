@@ -3,18 +3,18 @@
 
 @include mat.core();
 
-// Primary — Deep Purple (#4b006e)
+// Primary — Purple (#4F2E81)
 $primary-palette: (
-  50: #f5eff8,
-  100: #e8d4f0,
-  200: #d1a9e1,
-  300: #b67dcc,
-  400: #8f3da8,
-  500: #4b006e,
-  600: #3f005c,
-  700: #33004a,
-  800: #270038,
-  900: #1a0026,
+  50: #f3eef9,
+  100: #e2d4f2,
+  200: #c5a9e4,
+  300: #a67ed5,
+  400: #7f52b8,
+  500: #4f2e81,
+  600: #43276d,
+  700: #372059,
+  800: #2b1945,
+  900: #1c1030,
   A100: #e1bee7,
   A200: #ce93d8,
   A400: #ab47bc,
@@ -37,30 +37,30 @@ $primary-palette: (
   ),
 );
 
-// Secondary — Gold (#6e4b00)
+// Secondary — Yellow (#FCCF21)
 $accent-palette: (
-  50: #faf6ee,
-  100: #f2e8cc,
-  200: #e4cf99,
-  300: #d0b05c,
-  400: #9a7420,
-  500: #6e4b00,
-  600: #5c3f00,
-  700: #4a3300,
-  800: #382700,
-  900: #261b00,
-  A100: #ffe082,
-  A200: #ffd54f,
-  A400: #ffc107,
-  A700: #ff8f00,
+  50: #fffbea,
+  100: #fff4c2,
+  200: #ffeb8a,
+  300: #fde047,
+  400: #fcd535,
+  500: #fccf21,
+  600: #d4ad1b,
+  700: #a88715,
+  800: #7c620f,
+  900: #503d0a,
+  A100: #fff9c4,
+  A200: #fff59d,
+  A400: #ffee58,
+  A700: #ffd600,
   contrast: (
     50: rgba(black, 0.87),
     100: rgba(black, 0.87),
     200: rgba(black, 0.87),
     300: rgba(black, 0.87),
-    400: white,
-    500: white,
-    600: white,
+    400: rgba(black, 0.87),
+    500: rgba(black, 0.87),
+    600: rgba(black, 0.87),
     700: white,
     800: white,
     900: white,
@@ -95,32 +95,17 @@ $theme: mat.define-light-theme(
 // GLOBAL COLOR SYSTEM
 // ============================================
 :root {
-  --color-primary: #4b006e;
-  --color-primary-light: #6b1a94;
-  --color-primary-dark: #2d0042;
-  --color-primary-rgb: 75, 0, 110;
+  --color-primary: #4f2e81;
+  --color-primary-light: #6b47a3;
+  --color-primary-dark: #35205a;
+  --color-primary-rgb: 79, 46, 129;
 
-  --color-secondary-gold: #6e4b00;
-  --color-secondary-gold-light: #9a6f1a;
-  --color-secondary-gold-dark: #4a3200;
-
-  --color-secondary-teal: #006e4b;
-  --color-secondary-teal-light: #1a8f6a;
-  --color-secondary-teal-dark: #004d35;
-
-  // Legacy aliases (used in component styles)
-  --color-metallic-silver: #c4c0c8;
-  --color-metallic-silver-light: #e8e6ec;
-  --color-metallic-silver-dark: #9a96a0;
-  --color-metallic-gold: var(--color-secondary-gold);
-  --color-metallic-gold-light: var(--color-secondary-gold-light);
-  --color-metallic-gold-dark: var(--color-secondary-gold-dark);
+  --color-secondary: #fccf21;
+  --color-secondary-light: #fde047;
+  --color-secondary-dark: #d4ad1b;
 
   --gradient-brand: #ffffff;
   --gradient-accent: #ffffff;
-  --gradient-metallic-silver: #ffffff;
-  --gradient-metallic-gold: #ffffff;
-  --gradient-metallic-combo: #ffffff;
 
   --color-background: #ffffff;
   --color-surface: #ffffff;
@@ -130,17 +115,13 @@ $theme: mat.define-light-theme(
   --color-text-light: #000000;
   --color-text-muted: #000000;
 
-  --color-accent-gold: #000000;
-  --color-accent-teal: #000000;
-
   --color-border-light: #e0e0e0;
-  --color-border-metallic: #e0e0e0;
+  --color-border-accent: #e0e0e0;
 
   --shadow-sm: none;
   --shadow-md: none;
   --shadow-lg: none;
   --shadow-primary: transparent;
-  --shadow-metallic: transparent;
 
   --radius-sm: 6px;
   --radius-md: 12px;
@@ -158,21 +139,36 @@ $theme: mat.define-light-theme(
   box-sizing: border-box;
 }
 
+// Hidden until a keyboard user tabs to it (accessibility)
 .skip-link {
   position: absolute;
-  top: -40px;
-  left: 0;
-  background: #ffffff;
-  color: #000000;
-  padding: 8px 16px;
-  text-decoration: none;
-  z-index: 100;
-  border-radius: 0 0 var(--radius-sm) 0;
-  font-weight: 500;
-  border: 1px solid #000000;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 
   &:focus {
-    top: 0;
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 8px 16px;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    z-index: 10000;
+    background: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
   }
 }
 
@@ -198,14 +194,28 @@ h4 {
   line-height: 1.25;
 }
 
-// Material button — neutral white/black for now
 .mat-mdc-raised-button.mat-primary,
 .mat-mdc-raised-button.mat-accent {
   --mdc-protected-button-container-color: #ffffff;
   --mdc-protected-button-label-text-color: #000000;
   --mdc-protected-button-container-elevation-shadow: none;
+  --mdc-protected-button-label-text-size: 1.25rem;
   border: 1px solid #000000;
   font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: 0.01em;
+}
+
+.schedule-demo-button.mat-mdc-raised-button {
+  --mdc-protected-button-container-color: var(--color-primary);
+  --mdc-protected-button-label-text-color: #ffffff;
+  --mdc-protected-button-container-elevation-shadow: none;
+  --mdc-protected-button-container-shape: 9999px;
+  --mdc-protected-button-label-text-size: 1.3125rem;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.3125rem;
   letter-spacing: 0.01em;
 }
 
@@ -216,39 +226,22 @@ h4 {
   color: var(--color-primary) !important;
 }
 
-.text-secondary-gold {
-  color: var(--color-secondary-gold) !important;
-}
-
-.text-secondary-teal {
-  color: var(--color-secondary-teal) !important;
-}
-
-.text-metallic-silver {
-  color: var(--color-metallic-silver) !important;
-}
-
-.text-metallic-gold {
-  color: var(--color-metallic-gold) !important;
+.text-secondary {
+  color: var(--color-secondary) !important;
 }
 
 .bg-primary {
   background-color: var(--color-primary) !important;
 }
 
-.bg-metallic-silver,
-.bg-metallic-gold {
-  background: var(--gradient-accent) !important;
+.bg-secondary {
+  background-color: var(--color-secondary) !important;
 }
 
-.border-metallic {
-  border-color: var(--color-border-metallic) !important;
+.border-accent {
+  border-color: var(--color-secondary) !important;
 }
 
-.border-metallic-gold {
-  border-color: var(--color-secondary-gold) !important;
-}
-
-.shadow-metallic {
-  box-shadow: var(--shadow-md) !important;
+.brand-ai {
+  color: var(--color-primary);
 }

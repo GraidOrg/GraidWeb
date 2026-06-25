@@ -7,10 +7,10 @@
 }
 
 .header {
-  background: #ffffff;
+  background: var(--color-secondary);
   color: #000000;
   padding: 18px 0;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: none;
 
   .header-content {
     max-width: 1200px;
@@ -44,6 +44,10 @@
     font-weight: 600;
     margin: 0;
     color: #000000;
+
+    .brand-ai {
+      color: var(--color-primary);
+    }
   }
 
   .header-navbar {
@@ -52,10 +56,14 @@
     gap: 16px;
 
     .navbar-button {
-      font-size: 0.95rem;
+      font-size: 1.1875rem;
       padding: 10px 26px;
       height: auto;
-      border-radius: var(--radius-sm);
+    }
+
+    .schedule-demo-button.mat-mdc-raised-button {
+      --mdc-protected-button-container-color: var(--color-primary);
+      --mdc-protected-button-label-text-color: #ffffff;
     }
   }
 }
@@ -86,7 +94,7 @@
 @media (max-width: 480px) {
   .header .header-navbar .navbar-button {
     width: 100%;
-    font-size: 0.9rem;
+    font-size: 1.125rem;
     padding: 12px 20px;
   }
 }

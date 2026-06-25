@@ -1,5 +1,4 @@
 <div class="app-container">
-  <!-- Skip to main content -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Header -->
@@ -15,18 +14,18 @@
         (keydown.space)="navigateToHome()"
       >
         <img
-          src="assets/images/logo.png"
+          src="assets/images/purple_gold_logo.png"
           alt="Graid Logo"
           class="logo"
           loading="lazy"
         />
-        <h1 class="main-title">{{ title }}</h1>
+        <h1 class="main-title">Gr<span class="brand-ai">ai</span>d</h1>
       </div>
       <nav class="header-navbar" role="navigation" aria-label="Main navigation">
         <button
           mat-raised-button
-          color="accent"
-          class="navbar-button"
+          color="primary"
+          class="navbar-button schedule-demo-button"
           (click)="navigateToScheduleDemo()"
           aria-label="Schedule a demo"
         >

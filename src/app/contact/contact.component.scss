@@ -3,37 +3,53 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 64px 24px;
+  padding: 56px 24px 72px;
   background: #ffffff;
-  color: #000000;
 }
 
 .contact-content {
-  max-width: 680px;
+  max-width: 760px;
   width: 100%;
   background: #ffffff;
-  padding: 52px 48px;
+  padding: 48px 56px 56px;
   border-radius: var(--radius-md);
-  border: 1px solid #e0e0e0;
+  border: 5px solid var(--color-secondary);
+}
 
-  .contact-title {
-    font-size: 2.25rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: #000000;
-    text-align: center;
-  }
+.contact-header {
+  margin-bottom: 36px;
+  text-align: center;
+}
 
-  .contact-subtitle {
-    font-size: 1.05rem;
-    color: #000000;
-    margin-bottom: 36px;
-    text-align: center;
-    line-height: 1.65;
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
+.contact-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-primary);
+  margin: 0;
+  padding-top: 24px;
+  position: relative;
+  display: inline-block;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 72px;
+    height: 6px;
+    background: var(--color-secondary);
+    border-radius: 3px;
   }
+}
+
+.contact-subtitle {
+  font-size: 1.1rem;
+  color: #000000;
+  margin: 20px auto 0;
+  line-height: 1.65;
+  max-width: 520px;
 }
 
 .contact-form {
@@ -52,18 +68,22 @@
     ::ng-deep .mdc-notched-outline__leading,
     ::ng-deep .mdc-notched-outline__notch,
     ::ng-deep .mdc-notched-outline__trailing {
-      border-color: #e0e0e0 !important;
+      border-color: rgba(79, 46, 129, 0.2) !important;
     }
 
     ::ng-deep &.mat-focused .mdc-notched-outline__leading,
     ::ng-deep &.mat-focused .mdc-notched-outline__notch,
     ::ng-deep &.mat-focused .mdc-notched-outline__trailing {
-      border-color: #000000 !important;
+      border-color: var(--color-primary) !important;
+      border-width: 2px !important;
+    }
+
+    ::ng-deep .mat-mdc-floating-label.mdc-floating-label--float-above {
+      color: var(--color-primary) !important;
     }
 
     ::ng-deep .mat-mdc-input-element,
-    ::ng-deep .mat-mdc-select-value,
-    ::ng-deep .mat-mdc-floating-label {
+    ::ng-deep .mat-mdc-select-value {
       color: #000000 !important;
     }
   }
@@ -76,75 +96,77 @@
   }
 
   .submit-button {
-    font-size: 1rem;
-    padding: 12px 48px;
+    font-size: 1.25rem;
+    padding: 14px 48px;
     height: auto;
-    margin-top: 8px;
+    margin-top: 12px;
     align-self: center;
-    min-width: 160px;
-    border-radius: var(--radius-sm);
+    min-width: 180px;
     font-weight: 600;
   }
 
-  .success-message {
-    background: #ffffff;
-    color: #000000;
+  .form-message {
     padding: 16px 20px;
     border-radius: var(--radius-sm);
     text-align: center;
-    margin-top: 8px;
-    border: 1px solid #000000;
+    margin-top: 4px;
 
     p {
       margin: 0;
       font-size: 0.98rem;
     }
-  }
 
-  .error-message {
-    background: #ffffff;
-    color: #000000;
-    padding: 16px 20px;
-    border-radius: var(--radius-sm);
-    text-align: center;
-    margin-top: 8px;
-    border: 1px solid #000000;
+    &__detail {
+      margin-top: 8px !important;
+      font-size: 0.9rem !important;
 
-    p {
-      margin: 0;
-      font-size: 0.98rem;
+      &--muted {
+        opacity: 0.8;
+      }
+    }
+
+    &--success {
+      background: #ffffff;
+      color: #000000;
+      border: 2px solid var(--color-secondary);
+    }
+
+    &--error {
+      background: #ffffff;
+      color: #000000;
+      border: 2px solid var(--color-primary);
     }
   }
 }
 
 @media (max-width: 768px) {
   .contact-container {
-    padding: 40px 16px;
+    padding: 40px 16px 56px;
   }
 
   .contact-content {
-    padding: 36px 28px;
+    padding: 36px 28px 40px;
+  }
 
-    .contact-title {
-      font-size: 1.85rem;
-    }
+  .contact-title {
+    font-size: 1.85rem;
+  }
 
-    .contact-subtitle {
-      font-size: 1rem;
-    }
+  .contact-subtitle {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .contact-content {
-    padding: 28px 20px;
+    padding: 28px 20px 32px;
+  }
 
-    .contact-title {
-      font-size: 1.65rem;
-    }
+  .contact-title {
+    font-size: 1.65rem;
+  }
 
-    .contact-form .submit-button {
-      width: 100%;
-    }
+  .contact-form .submit-button {
+    width: 100%;
   }
 }

@@ -1,7 +1,9 @@
 <div class="contact-container">
   <div class="contact-content" role="region" aria-labelledby="contact-title">
-    <h1 id="contact-title" class="contact-title">{{ formTitle }}</h1>
-    <p class="contact-subtitle">{{ formSubtitle }}</p>
+    <header class="contact-header">
+      <h1 id="contact-title" class="contact-title">{{ formTitle }}</h1>
+      <p class="contact-subtitle">{{ formSubtitle }}</p>
+    </header>
 
     <form
       [formGroup]="contactForm"
@@ -10,7 +12,6 @@
       novalidate
       aria-label="Contact form"
     >
-      <!-- Name Field -->
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>Name</mat-label>
         <input
@@ -25,7 +26,6 @@
         </mat-error>
       </mat-form-field>
 
-      <!-- Email Field -->
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>Email</mat-label>
         <input
@@ -41,9 +41,7 @@
         </mat-error>
       </mat-form-field>
 
-      <!-- Demo-specific fields -->
       <ng-container *ngIf="formType === constants.FORM_TYPES.DEMO">
-        <!-- Institution Field -->
         <mat-form-field appearance="outline" class="form-field">
           <mat-label>Institution/Organization</mat-label>
           <input
@@ -58,7 +56,6 @@
           </mat-error>
         </mat-form-field>
 
-        <!-- Role Field -->
         <mat-form-field appearance="outline" class="form-field">
           <mat-label>Role</mat-label>
           <mat-select formControlName="role" required>
@@ -71,7 +68,6 @@
           </mat-error>
         </mat-form-field>
 
-        <!-- Preferred Date Field -->
         <mat-form-field appearance="outline" class="form-field">
           <mat-label>Preferred Date</mat-label>
           <input matInput [matDatepicker]="picker" formControlName="preferredDate" />
@@ -79,16 +75,13 @@
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-        <!-- Preferred Time Field -->
         <mat-form-field appearance="outline" class="form-field">
           <mat-label>Preferred Time</mat-label>
           <input matInput type="time" formControlName="preferredTime" />
         </mat-form-field>
       </ng-container>
 
-      <!-- Contact-specific fields -->
       <ng-container *ngIf="formType === constants.FORM_TYPES.CONTACT">
-        <!-- Subject Field -->
         <mat-form-field appearance="outline" class="form-field">
           <mat-label>Subject</mat-label>
           <input
@@ -103,7 +96,6 @@
         </mat-form-field>
       </ng-container>
 
-      <!-- Message Field -->
       <mat-form-field appearance="outline" class="form-field message-field">
         <mat-label>Message</mat-label>
         <textarea
@@ -118,38 +110,33 @@
         </mat-error>
       </mat-form-field>
 
-      <!-- Success Message -->
       <div
         *ngIf="submitSuccess"
-        class="success-message"
+        class="form-message form-message--success"
         role="alert"
         aria-live="polite"
       >
         <p>{{ constants.MESSAGES.FORM_SUBMIT_SUCCESS }}</p>
       </div>
 
-      <!-- Error Message -->
       <div
         *ngIf="submitError"
-        class="error-message"
+        class="form-message form-message--error"
         role="alert"
         aria-live="assertive"
       >
         <p><strong>{{ constants.MESSAGES.FORM_SUBMIT_ERROR }}</strong></p>
-        <p *ngIf="errorMessage" style="margin-top: 8px; font-size: 0.9rem;">
-          {{ errorMessage }}
-        </p>
-        <p *ngIf="!environment.production" style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">
+        <p *ngIf="errorMessage" class="form-message__detail">{{ errorMessage }}</p>
+        <p *ngIf="!environment.production" class="form-message__detail form-message__detail--muted">
           Check the browser console for more details.
         </p>
       </div>
 
-      <!-- Submit Button -->
       <button
         mat-raised-button
         color="primary"
         type="submit"
-        class="submit-button"
+        class="submit-button schedule-demo-button"
         [disabled]="isSubmitting || contactForm.invalid"
         [attr.aria-busy]="isSubmitting"
       >
@@ -158,4 +145,3 @@
     </form>
   </div>
 </div>
-

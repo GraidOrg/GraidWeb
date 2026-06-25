@@ -12,7 +12,6 @@ import { APP_CONSTANTS } from './shared/constants/app.constants';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  readonly title = 'Graid';
   readonly routes = APP_CONSTANTS.ROUTES;
 
   constructor(private readonly router: Router) {}
