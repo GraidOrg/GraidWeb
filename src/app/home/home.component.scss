@@ -426,6 +426,11 @@
   font-size: 1.25rem;
   padding: 14px 40px;
   height: auto;
+
+  &.schedule-demo-button.mat-mdc-raised-button {
+    --mdc-protected-button-container-color: var(--color-primary);
+    --mdc-protected-button-label-text-color: #ffffff;
+  }
 }
 
 .content-card {
