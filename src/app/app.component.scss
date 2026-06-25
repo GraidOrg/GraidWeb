@@ -7,8 +7,8 @@
 }
 
 .header {
-  background: var(--color-secondary);
-  color: #000000;
+  background: #4c2d73;
+  color: #ffffff;
   padding: 18px 0;
   border-bottom: none;
 
@@ -43,10 +43,10 @@
     font-size: 1.65rem;
     font-weight: 600;
     margin: 0;
-    color: #000000;
+    color: #ffffff;
 
     .brand-ai {
-      color: var(--color-primary);
+      color: var(--color-secondary);
     }
   }
 
@@ -59,11 +59,6 @@
       font-size: 1.1875rem;
       padding: 10px 26px;
       height: auto;
-    }
-
-    .schedule-demo-button.mat-mdc-raised-button {
-      --mdc-protected-button-container-color: var(--color-primary);
-      --mdc-protected-button-label-text-color: #ffffff;
     }
   }
 }
