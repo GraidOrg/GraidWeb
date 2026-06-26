@@ -10,12 +10,11 @@ import { APP_CONSTANTS } from '../shared/constants/app.constants';
   standalone: true,
   imports: [CommonModule, MatButtonModule, MatIconModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit, OnDestroy {
   readonly processSteps = [
-    { icon: 'event', label: 'Schedule a Demo' },
-    { icon: 'rocket_launch', label: 'Perform a Free Semester-Long Pilot' },
+    { icon: 'event', label: 'Get Free\nSemester-Long Pilot' },
+    { icon: 'rocket_launch', label: 'See Improved\nStudent Success' },
     { icon: 'groups', label: 'Empower All Instructors with AI' },
   ] as const;
 
