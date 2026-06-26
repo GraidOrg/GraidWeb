@@ -405,16 +405,15 @@
     line-height: 1.35;
     max-width: 900px;
   }
-}
 
-.guide-download-button {
-  font-size: 1.25rem;
-  padding: 14px 40px;
-  height: auto;
+  .guide-download-button {
+    padding: 16px 44px;
+    height: auto;
 
-  &.schedule-demo-button.mat-mdc-raised-button {
-    --mdc-protected-button-container-color: var(--color-primary);
-    --mdc-protected-button-label-text-color: #ffffff;
+    &.schedule-demo-button.mat-mdc-raised-button {
+      --mdc-protected-button-container-color: var(--color-primary);
+      --mdc-protected-button-label-text-color: #ffffff;
+    }
   }
 }
 
@@ -638,6 +637,11 @@
 
     &__title {
       font-size: 1.5rem;
+    }
+
+    .guide-download-button {
+      font-size: 1.25rem;
+      padding: 14px 32px;
     }
   }
 

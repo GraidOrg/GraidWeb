@@ -201,7 +201,7 @@ Demo Request Details:
 
   get formTitle(): string {
     return this.formType === this.constants.FORM_TYPES.DEMO
-      ? 'Schedule a Demo'
+      ? 'Get a Free Semester-Long Pilot'
       : 'Contact Us';
   }
 
