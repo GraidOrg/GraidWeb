@@ -19,9 +19,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   ] as const;
 
   readonly testimonials = [
-    { quote: "It's better than my actual teacher", attribution: '-Max' },
-    { quote: 'Finally an AI that helps my students learn', attribution: '-Dr. Davies' },
-    { quote: "It grades for you! I couldn't ask for more", attribution: '-Dr. Arroyo' },
+    { quote: 'its better than my actual teacher', attribution: '-Max' },
+    { quote: 'Finally!! An AI that helps me', attribution: '-Dr. Davies' },
+    { quote: "It grades for you, I couldn't ask for more.", attribution: '-Dr. Arroyo' },
   ] as const;
 
   readonly currentYear = new Date().getFullYear();
