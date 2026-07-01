@@ -160,11 +160,18 @@
   }
 
   &__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
     margin: 0 0 8px;
-    color: var(--color-primary);
-    font-size: 1.65rem;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: 1.25rem;
     font-weight: 600;
     line-height: 1;
+    border-radius: 50%;
   }
 
   &__label {
@@ -549,6 +556,12 @@
       width: 64px;
       height: 64px;
       margin-bottom: 16px;
+    }
+
+    &__number {
+      width: 36px;
+      height: 36px;
+      font-size: 1.1rem;
     }
 
     &__label {
