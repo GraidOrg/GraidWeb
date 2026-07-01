@@ -104,7 +104,8 @@
       flex-shrink: 0;
 
       &--canvas,
-      &--image {
+      &--image,
+      &--recording {
         display: block;
         width: 48px;
         height: 48px;
@@ -524,7 +525,8 @@
 
       &__icon {
         &--canvas,
-        &--image {
+        &--image,
+        &--recording {
           width: 40px;
           height: 40px;
         }
