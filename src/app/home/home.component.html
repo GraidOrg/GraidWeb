@@ -28,14 +28,48 @@
     />
     <div class="cheat-chat-section__card">
       <h2 id="problem-title" class="section-accent-heading__title">
-        Having awkward AI cheating talks?
+        Having awkward talks about AI cheating?
       </h2>
     </div>
   </div>
 </section>
 
-<section class="solution-band" aria-labelledby="solution-title vision-title">
+<section class="tutoring-video-section" aria-label="Tutoring demonstration video">
+  <div class="video-embed-wrapper">
+    <video
+      #tutoringVideo
+      class="tutoring-video"
+      controls
+      playsinline
+      preload="metadata"
+      aria-label="Graid tutoring demonstration"
+      (play)="onVideoPlay()"
+      (pause)="onVideoPause()"
+      (ended)="onVideoPause()"
+    >
+      <source src="assets/images/Tutoring.mp4" type="video/mp4" />
+      Your browser does not support embedded videos.
+    </video>
+    <button
+      *ngIf="!isVideoPlaying"
+      type="button"
+      class="video-play-button"
+      (click)="playVideo()"
+      aria-label="Play tutoring demonstration video"
+    >
+      <mat-icon aria-hidden="true">play_arrow</mat-icon>
+    </button>
+  </div>
+</section>
+
+<section class="solution-band" aria-labelledby="vision-title">
   <div class="solution-band__inner">
+    <img
+      src="assets/images/student.jpg"
+      alt=""
+      class="solution-band__image"
+      aria-hidden="true"
+    />
     <div class="solution-band__vision section-accent-heading">
       <h2 id="vision-title" class="section-accent-heading__title">
         A Vision and Voice AI Tutor that:
@@ -74,37 +108,6 @@
         </li>
       </ul>
     </div>
-    <div class="solution-band__message">
-      <div class="solution-band__message-content">
-        <h2 id="solution-title" class="solution-band__title">
-          We care about <span class="solution-band__underline">how</span> your students use AI
-        </h2>
-        <button
-          mat-raised-button
-          color="primary"
-          class="solution-band__button schedule-demo-button"
-          (click)="navigateToScheduleDemo()"
-          aria-label="Get a free pilot"
-        >
-          Get a Free Pilot
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="tutoring-video-section" aria-label="Tutoring demonstration video">
-  <div class="video-embed-wrapper">
-    <video
-      class="tutoring-video"
-      controls
-      playsinline
-      preload="metadata"
-      aria-label="Graid tutoring demonstration"
-    >
-      <source src="assets/images/Tutoring.mp4" type="video/mp4" />
-      Your browser does not support embedded videos.
-    </video>
   </div>
 </section>
 
@@ -183,20 +186,6 @@
           [attr.aria-selected]="i === activeTestimonialIndex"
           role="tab"
         ></button>
-      </div>
-    </div>
-  </section>
-
-  <section class="closing-question" aria-label="Closing question">
-    <p class="closing-question__prompt">Should instructors be focused on</p>
-    <div class="closing-question__choices">
-      <div class="cheatgpt-badge"><span class="cheatgpt-badge__cheat">Cheat</span>GPT</div>
-      <div class="closing-question__or" aria-hidden="true">
-        <span>or</span>
-      </div>
-      <div class="ai-learning-badge">
-        <span>AI-Enhanced</span>
-        <span>Learning</span>
       </div>
     </div>
   </section>

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
@@ -29,6 +29,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   readonly queryParams = APP_CONSTANTS.QUERY_PARAMS;
 
   activeTestimonialIndex = 0;
+  isVideoPlaying = false;
+
+  @ViewChild('tutoringVideo') tutoringVideo?: ElementRef<HTMLVideoElement>;
 
   private autoCycleIntervalId?: ReturnType<typeof setInterval>;
 
@@ -70,6 +73,18 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.router.navigate([`/${this.routes.CONTACT}`], {
       queryParams: { type: this.queryParams.CONTACT },
     });
+  }
+
+  playVideo(): void {
+    void this.tutoringVideo?.nativeElement.play();
+  }
+
+  onVideoPlay(): void {
+    this.isVideoPlaying = true;
+  }
+
+  onVideoPause(): void {
+    this.isVideoPlaying = false;
   }
 
   private startAutoCycle(): void {

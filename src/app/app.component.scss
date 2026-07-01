@@ -66,31 +66,39 @@
 
 @media (max-width: 768px) {
   .header {
+    padding: 14px 0;
+
     .header-content {
       flex-direction: column;
-      gap: 16px;
-      padding: 0 20px;
+      gap: 12px;
+      padding: 0 16px;
     }
 
     .logo-container .logo {
-      height: 34px;
+      height: 32px;
     }
 
     .main-title {
-      font-size: 1.4rem;
+      font-size: 1.25rem;
     }
 
     .header-navbar {
       width: 100%;
       justify-content: center;
+
+      .navbar-button {
+        width: 100%;
+        max-width: 320px;
+        font-size: 1.125rem;
+        padding: 12px 20px;
+        height: auto;
+      }
     }
   }
 }
 
 @media (max-width: 480px) {
   .header .header-navbar .navbar-button {
-    width: 100%;
-    font-size: 1.125rem;
-    padding: 12px 20px;
+    max-width: none;
   }
 }
