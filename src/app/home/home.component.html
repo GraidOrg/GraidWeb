@@ -1,10 +1,29 @@
 <!-- Hero Section -->
 <section class="hero-section" aria-labelledby="hero-title">
+  <div class="hero-brand-bar">
+    <div class="hero-brand" aria-label="Graid">
+      <img
+        src="assets/images/gold_transparent.png"
+        alt=""
+        class="hero-brand__logo"
+        aria-hidden="true"
+      />
+      <span class="hero-brand__name">Gr<span class="brand-ai">ai</span>d</span>
+    </div>
+    <button
+      mat-raised-button
+      color="primary"
+      class="hero-button schedule-demo-button"
+      (click)="navigateToScheduleDemo()"
+      aria-label="Get a free pilot"
+    >
+      Get Free Pilot
+    </button>
+  </div>
   <div class="hero-content">
     <h1 id="hero-title" class="hero-title">
-      Use Our AI Tutor to<br />
-      Make Sure Students<br />
-      Use AI to Learn
+      An AI Tutor that Actually<br />
+      Empowers Instructors
     </h1>
     <button
       mat-raised-button
@@ -18,18 +37,58 @@
   </div>
 </section>
 
-<section class="cheat-chat-section" aria-labelledby="problem-title">
-  <div class="cheat-chat-section__inner">
+<section class="hero-features" aria-label="Key Graid features">
+  <div class="hero-features__item hero-features__item--light">
     <img
-      src="assets/images/cheat_chat.jpg"
+      src="assets/images/white_tutor_icon.svg"
       alt=""
-      class="cheat-chat-section__image"
+      class="hero-features__icon"
       aria-hidden="true"
     />
-    <div class="cheat-chat-section__card">
-      <h2 id="problem-title" class="section-accent-heading__title">
-        Having awkward talks about AI cheating?
-      </h2>
+    <span class="hero-features__text">Vision and voice AI tutor</span>
+  </div>
+  <div class="hero-features__item hero-features__item--mid">
+    <img
+      src="assets/images/white_recording_icon.svg"
+      alt=""
+      class="hero-features__icon"
+      aria-hidden="true"
+    />
+    <span class="hero-features__text">See recorded student sessions</span>
+  </div>
+  <div class="hero-features__item hero-features__item--dark">
+    <img
+      src="assets/images/white_canvas_icon.svg"
+      alt=""
+      class="hero-features__icon"
+      aria-hidden="true"
+    />
+    <span class="hero-features__text">Auto-grading in Canvas</span>
+  </div>
+</section>
+
+<section class="cheat-chat-section" aria-labelledby="problem-title">
+  <div class="cheat-chat-section__inner">
+    <h2 id="problem-title" class="cheat-chat-section__title">
+      Avoid awkward AI cheating chats
+    </h2>
+    <div class="cheat-chat-section__media">
+      <img
+        src="assets/images/cheat_chat_no_background.png"
+        alt="Conversation about AI-assisted coursework"
+        class="cheat-chat-section__image"
+      />
+      <div class="cheat-chat-section__cta">
+        <button
+          mat-raised-button
+          color="primary"
+          class="hero-button schedule-demo-button"
+          (click)="navigateToScheduleDemo()"
+          aria-label="Get a free pilot"
+        >
+          Get Free Pilot
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -62,62 +121,16 @@
   </div>
 </section>
 
-<section class="solution-band" aria-labelledby="vision-title">
-  <div class="solution-band__inner">
-    <img
-      src="assets/images/student.jpg"
-      alt=""
-      class="solution-band__image"
-      aria-hidden="true"
-    />
-    <div class="solution-band__vision section-accent-heading">
-      <h2 id="vision-title" class="section-accent-heading__title">
-        A Vision and Voice AI Tutor that:
-      </h2>
-      <ul class="vision-features">
-        <li>
-          <mat-icon class="vision-features__icon" aria-hidden="true">support_agent</mat-icon>
-          <span>Tutors like a live person</span>
-        </li>
-        <li>
-          <img
-            src="assets/images/recording_icon.svg"
-            alt=""
-            class="vision-features__icon vision-features__icon--recording"
-            aria-hidden="true"
-          />
-          <span>Records each session</span>
-        </li>
-        <li>
-          <img
-            src="assets/images/a_plus.jpg"
-            alt=""
-            class="vision-features__icon vision-features__icon--image"
-            aria-hidden="true"
-          />
-          <span>Grades students based on participation</span>
-        </li>
-        <li>
-          <img
-            src="assets/images/black_canvas_icon.svg"
-            alt=""
-            class="vision-features__icon vision-features__icon--canvas"
-            aria-hidden="true"
-          />
-          <span>Integrates with Canvas</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <!-- Content Sections -->
 <div class="content-wrapper">
-  <section class="process-steps" aria-label="How Graid works">
-    <div class="process-steps__item" *ngFor="let step of processSteps; let i = index">
-      <mat-icon class="process-steps__icon" aria-hidden="true">{{ step.icon }}</mat-icon>
-      <p class="process-steps__number">{{ i + 1 }}</p>
-      <p class="process-steps__label">{{ step.label }}</p>
+  <section class="process-steps" aria-labelledby="process-steps-title">
+    <h2 id="process-steps-title" class="process-steps__title">3 Easy Steps</h2>
+    <div class="process-steps__grid">
+      <div class="process-steps__item" *ngFor="let step of processSteps; let i = index">
+        <mat-icon class="process-steps__icon" aria-hidden="true">{{ step.icon }}</mat-icon>
+        <p class="process-steps__number">{{ i + 1 }}</p>
+        <p class="process-steps__label">{{ step.label }}</p>
+      </div>
     </div>
   </section>
 
@@ -140,11 +153,11 @@
       <div class="testimonials-carousel">
         <button
           type="button"
-          class="testimonials-carousel__arrow"
+          class="testimonials-carousel__arrow testimonials-carousel__arrow--prev"
           (click)="prevTestimonial()"
           aria-label="Previous testimonial"
         >
-          <mat-icon aria-hidden="true">chevron_left</mat-icon>
+          <span class="testimonials-carousel__arrow-icon" aria-hidden="true"></span>
         </button>
 
         <div
@@ -167,11 +180,11 @@
 
         <button
           type="button"
-          class="testimonials-carousel__arrow"
+          class="testimonials-carousel__arrow testimonials-carousel__arrow--next"
           (click)="nextTestimonial()"
           aria-label="Next testimonial"
         >
-          <mat-icon aria-hidden="true">chevron_right</mat-icon>
+          <span class="testimonials-carousel__arrow-icon" aria-hidden="true"></span>
         </button>
       </div>
 

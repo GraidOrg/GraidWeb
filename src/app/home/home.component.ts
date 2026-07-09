@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   readonly testimonials = [
     { quote: 'its better than my actual teacher', attribution: '-Max' },
-    { quote: 'Finally!! An AI that helps me', attribution: '-Dr. Davies' },
+    { quote: 'I can see the student conversations! Love the visibility', attribution: '-Dr. Davies' },
     { quote: "It grades for you, I couldn't ask for more.", attribution: '-Dr. Arroyo' },
   ] as const;
 
