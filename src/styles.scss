@@ -83,7 +83,7 @@ $theme: mat.define-light-theme(
       warn: $warn,
     ),
     typography: mat.define-typography-config(
-      $font-family: '"Times New Roman", Times, serif',
+      $font-family: '"Libre Franklin", system-ui, -apple-system, sans-serif',
     ),
     density: 0,
   )
@@ -92,45 +92,139 @@ $theme: mat.define-light-theme(
 @include mat.all-component-themes($theme);
 
 // ============================================
-// GLOBAL COLOR SYSTEM
+// GLOBAL DESIGN SYSTEM (light theme = bare :root)
+// New tokens drive the redesigned homepage; legacy --color-* tokens
+// are retained so the (not-yet-restyled) contact page keeps working.
 // ============================================
 :root {
+  // --- new design tokens ---
+  --bg: #faf9fc;
+  --surface: #ffffff;
+  --surface-2: #f3eef9;
+  --ink: #1a1526;
+  --ink-soft: #3a3350;
+  --muted: #6b6484;
+  --line: #e7e1f0;
+  --line-strong: #d7cee8;
+
+  --purple: #4f2e81;
+  --purple-deep: #35205a;
+  --purple-bright: #6b47a3;
+  --purple-soft: #f3eef9;
+
+  --gold: #fccf21;
+  --gold-deep: #d4ad1b;
+  --gold-ink: #8a6d08;
+
+  --ok: #1f7a4d;
+  --ok-soft: #e7f4ec;
+
+  --shadow-sm: 0 1px 2px rgba(26, 21, 38, 0.06), 0 1px 3px rgba(26, 21, 38, 0.05);
+  --shadow-md: 0 6px 16px rgba(53, 32, 90, 0.08), 0 2px 6px rgba(53, 32, 90, 0.06);
+  --shadow-lg: 0 24px 60px rgba(53, 32, 90, 0.16), 0 8px 24px rgba(53, 32, 90, 0.1);
+
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --maxw: 1140px;
+
+  // --- legacy tokens (contact page) ---
   --color-primary: #4f2e81;
   --color-primary-light: #6b47a3;
   --color-primary-dark: #35205a;
   --color-primary-rgb: 79, 46, 129;
-
   --color-secondary: #fccf21;
   --color-secondary-light: #fde047;
   --color-secondary-dark: #d4ad1b;
-
-  --gradient-brand: #ffffff;
-  --gradient-accent: #ffffff;
-
-  --color-background: #ffffff;
+  --color-background: #faf9fc;
   --color-surface: #ffffff;
-  --color-text-primary: #000000;
-  --color-text-secondary: #000000;
-  --color-text-tertiary: #000000;
-  --color-text-light: #000000;
-  --color-text-muted: #000000;
-
-  --color-border-light: #e0e0e0;
-  --color-border-accent: #e0e0e0;
-
-  --shadow-sm: none;
-  --shadow-md: none;
-  --shadow-lg: none;
+  --color-text-primary: #1a1526;
+  --color-text-secondary: #3a3350;
+  --color-text-tertiary: #6b6484;
+  --color-text-light: #ffffff;
+  --color-text-muted: #6b6484;
+  --color-border-light: #e7e1f0;
+  --color-border-accent: #d7cee8;
   --shadow-primary: transparent;
+  --color-success: #1f7a4d;
+  --color-success-light: #e7f4ec;
+  --color-error: #b4462f;
+  --color-error-light: #fdeee9;
 
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
+  color-scheme: light;
+}
 
-  --color-success: #000000;
-  --color-success-light: #ffffff;
-  --color-error: #000000;
-  --color-error-light: #ffffff;
+// Dark theme when the OS prefers dark and the user hasn't forced light.
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #120e1d;
+    --surface: #1b1529;
+    --surface-2: #241b39;
+    --ink: #f4f0fb;
+    --ink-soft: #ddd4ee;
+    --muted: #a99fc4;
+    --line: #2f2646;
+    --line-strong: #3d3157;
+    --purple: #a67ed5;
+    --purple-deep: #c5a9e4;
+    --purple-bright: #c5a9e4;
+    --purple-soft: #241b39;
+    --gold: #fccf21;
+    --gold-deep: #fde047;
+    --gold-ink: #fcd535;
+    --ok: #6ad39b;
+    --ok-soft: #16281f;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.45);
+    --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.55);
+
+    --color-background: #120e1d;
+    --color-surface: #1b1529;
+    --color-text-primary: #f4f0fb;
+    --color-text-secondary: #ddd4ee;
+    --color-text-tertiary: #a99fc4;
+    --color-text-muted: #a99fc4;
+    --color-border-light: #2f2646;
+    --color-border-accent: #3d3157;
+
+    color-scheme: dark;
+  }
+}
+
+// Dark theme when the user explicitly toggles it.
+:root[data-theme="dark"] {
+  --bg: #120e1d;
+  --surface: #1b1529;
+  --surface-2: #241b39;
+  --ink: #f4f0fb;
+  --ink-soft: #ddd4ee;
+  --muted: #a99fc4;
+  --line: #2f2646;
+  --line-strong: #3d3157;
+  --purple: #a67ed5;
+  --purple-deep: #c5a9e4;
+  --purple-bright: #c5a9e4;
+  --purple-soft: #241b39;
+  --gold: #fccf21;
+  --gold-deep: #fde047;
+  --gold-ink: #fcd535;
+  --ok: #6ad39b;
+  --ok-soft: #16281f;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.55);
+
+  --color-background: #120e1d;
+  --color-surface: #1b1529;
+  --color-text-primary: #f4f0fb;
+  --color-text-secondary: #ddd4ee;
+  --color-text-tertiary: #a99fc4;
+  --color-text-muted: #a99fc4;
+  --color-border-light: #2f2646;
+  --color-border-accent: #3d3157;
+
+  color-scheme: dark;
 }
 
 * {
@@ -173,10 +267,11 @@ $theme: mat.define-light-theme(
 }
 
 body {
-  font-family: "Times New Roman", Times, serif;
-  line-height: 1.65;
-  color: var(--color-text-primary);
-  background-color: var(--color-background);
+  font-family: "Libre Franklin", system-ui, -apple-system, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.62;
+  color: var(--ink);
+  background-color: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -191,8 +286,11 @@ h1,
 h2,
 h3,
 h4 {
-  letter-spacing: -0.02em;
-  line-height: 1.25;
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  text-wrap: balance;
+  color: var(--ink);
 }
 
 .mat-mdc-raised-button.mat-primary,
