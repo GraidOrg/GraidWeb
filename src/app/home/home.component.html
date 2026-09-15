@@ -1,50 +1,4 @@
-<!-- Brand mark: twin bell-curve "graph" logo, restyled as a tile -->
-<svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="graidTile" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#4f2e81"></stop>
-      <stop offset="1" stop-color="#2b1745"></stop>
-    </linearGradient>
-    <symbol id="graid-mark" viewBox="0 0 120 120">
-      <rect width="120" height="120" rx="28" fill="url(#graidTile)"></rect>
-      <path d="M36 96 C54.7 96 59.1 20 70 20 C80.9 20 85.3 96 104 96 Z" fill="#fccf21"></path>
-      <path d="M14 96 C30.5 96 34.4 40 44 40 C53.6 40 57.5 96 74 96 Z" fill="#fccf21"></path>
-      <path d="M44 40 C53.6 40 57.5 96 74 96" fill="none" stroke="#2b1745" stroke-width="3.6" stroke-linecap="round"></path>
-    </symbol>
-  </defs>
-</svg>
-
-<!-- ============ NAV ============ -->
-<header class="nav">
-  <div class="wrap nav-inner">
-    <a href="#top" class="nav-brand" aria-label="Graid home">
-      <span class="nav-logo" aria-hidden="true">
-        <svg class="brand-mark" viewBox="0 0 120 120"><use href="#graid-mark"></use></svg>
-      </span>
-      <span class="wordmark">Gr<span class="ai">ai</span>d</span>
-    </a>
-
-    <nav class="nav-links" [class.open]="navOpen" aria-label="Primary">
-      <a class="navlink" href="#features" (click)="closeNav()">Product</a>
-      <a class="navlink" href="#how" (click)="closeNav()">How it works</a>
-      <a class="navlink" href="#security" (click)="closeNav()">Security</a>
-      <a class="navlink" href="#testimonials" (click)="closeNav()">Instructors</a>
-    </nav>
-
-    <div class="nav-right">
-      <button class="theme-toggle" (click)="toggleTheme()" aria-label="Toggle dark mode" title="Toggle theme" type="button">
-        <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
-        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"></path></svg>
-      </button>
-      <a href="#signup" class="btn btn-gold btn-sm nav-desktop-cta">Join Early Access</a>
-      <button class="nav-toggle" (click)="toggleNav()" [attr.aria-expanded]="navOpen" aria-label="Menu" type="button">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
-      </button>
-    </div>
-  </div>
-</header>
-
-<span id="top"></span>
+<!-- Nav + footer + brand-mark sprite now live in the shared app shell (app.component). -->
 
 <!-- ============ HERO ============ -->
 <section class="hero on-dark" aria-labelledby="hero-title">
@@ -223,7 +177,7 @@
           <div class="sec-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg> FERPA-conscious by design</div>
           <div class="sec-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v6H4zM4 14h16v6H4z"></path></svg> Per-institution isolation</div>
         </div>
-        <p class="sec-note">Specifics on our security page. HECVAT and DPA on request.</p>
+        <p class="sec-note"><a routerLink="/security" class="sec-link">Read our full security overview</a>. HECVAT and DPA on request.</p>
       </div>
       <div class="sec-emblem reveal">
         <div class="plate">
@@ -319,35 +273,4 @@
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-brand">
-          <svg class="brand-mark" viewBox="0 0 120 120" style="width:38px;height:38px"><use href="#graid-mark"></use></svg>
-          <span class="wordmark">Gr<span class="ai">ai</span>d</span>
-        </div>
-        <p class="foot-tag">Vision-and-voice AI tutoring that empowers instructors, built into Canvas.</p>
-      </div>
-      <div class="foot-col">
-        <h4>Product</h4>
-        <a href="#features">What it does</a>
-        <a href="#how">How it works</a>
-        <a href="#security">Security &amp; privacy</a>
-        <a href="#signup">Join early access</a>
-      </div>
-      <div class="foot-col">
-        <h4>Company</h4>
-        <a href="mailto:ceo&#64;graid.org">ceo&#64;graid.org</a>
-        <a href="#guide">The AI Paradox guide</a>
-        <a href="assets/legal/privacy-policy.pdf" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-        <a href="assets/legal/terms-of-service.pdf" target="_blank" rel="noopener noreferrer">Terms of Service</a>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>&copy; {{ currentYear }} Graid. All rights reserved.</span>
-      <span>Made for instructors, not against students.</span>
-    </div>
-  </div>
-</footer>
+<!-- Footer now lives in the shared app shell (app.component). -->

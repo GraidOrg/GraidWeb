@@ -1,172 +1,18 @@
-.contact-container {
-  min-height: calc(100vh - 80px);
+// The contact page reuses the global form styles from styles/home.scss
+// (.section, .signup, .form-card, .field, etc.). Only page-specific tweaks here.
+
+.contact-page {
+  min-height: 60vh;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 56px 24px 72px;
-  background: #ffffff;
+  align-items: center;
 }
 
-.contact-content {
-  max-width: 760px;
-  width: 100%;
-  background: #ffffff;
-  padding: 48px 56px 56px;
-  border-radius: var(--radius-md);
-  border: 5px solid var(--color-secondary);
+.inline-link {
+  color: var(--gold-ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
-
-.contact-header {
-  margin-bottom: 36px;
-  text-align: center;
-}
-
-.contact-title {
-  font-size: 2.25rem;
-  font-weight: 700;
-  line-height: 1.25;
-  color: var(--color-primary);
-  margin: 0;
-  padding-top: 24px;
-  position: relative;
-  display: inline-block;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 72px;
-    height: 6px;
-    background: var(--color-secondary);
-    border-radius: 3px;
-  }
-}
-
-.contact-subtitle {
-  font-size: 1.1rem;
-  color: #000000;
-  margin: 20px auto 0;
-  line-height: 1.65;
-  max-width: 520px;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-
-  .form-field {
-    width: 100%;
-
-    ::ng-deep .mat-mdc-text-field-wrapper {
-      background-color: #ffffff;
-      border-radius: var(--radius-sm);
-    }
-
-    ::ng-deep .mdc-notched-outline__leading,
-    ::ng-deep .mdc-notched-outline__notch,
-    ::ng-deep .mdc-notched-outline__trailing {
-      border-color: rgba(79, 46, 129, 0.2) !important;
-    }
-
-    ::ng-deep &.mat-focused .mdc-notched-outline__leading,
-    ::ng-deep &.mat-focused .mdc-notched-outline__notch,
-    ::ng-deep &.mat-focused .mdc-notched-outline__trailing {
-      border-color: var(--color-primary) !important;
-      border-width: 2px !important;
-    }
-
-    ::ng-deep .mat-mdc-floating-label.mdc-floating-label--float-above {
-      color: var(--color-primary) !important;
-    }
-
-    ::ng-deep .mat-mdc-input-element,
-    ::ng-deep .mat-mdc-select-value {
-      color: #000000 !important;
-    }
-  }
-
-  .message-field {
-    ::ng-deep textarea {
-      resize: vertical;
-      min-height: 130px;
-    }
-  }
-
-  .submit-button {
-    font-size: 1.25rem;
-    padding: 14px 48px;
-    height: auto;
-    margin-top: 12px;
-    align-self: center;
-    min-width: 180px;
-    font-weight: 600;
-  }
-
-  .form-message {
-    padding: 16px 20px;
-    border-radius: var(--radius-sm);
-    text-align: center;
-    margin-top: 4px;
-
-    p {
-      margin: 0;
-      font-size: 0.98rem;
-    }
-
-    &__detail {
-      margin-top: 8px !important;
-      font-size: 0.9rem !important;
-
-      &--muted {
-        opacity: 0.8;
-      }
-    }
-
-    &--success {
-      background: #ffffff;
-      color: #000000;
-      border: 2px solid var(--color-secondary);
-    }
-
-    &--error {
-      background: #ffffff;
-      color: #000000;
-      border: 2px solid var(--color-primary);
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .contact-container {
-    padding: 40px 16px 56px;
-  }
-
-  .contact-content {
-    padding: 36px 28px 40px;
-  }
-
-  .contact-title {
-    font-size: 1.85rem;
-  }
-
-  .contact-subtitle {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .contact-content {
-    padding: 28px 20px 32px;
-  }
-
-  .contact-title {
-    font-size: 1.65rem;
-  }
-
-  .contact-form .submit-button {
-    width: 100%;
-  }
+.inline-link:hover {
+  color: var(--purple);
 }

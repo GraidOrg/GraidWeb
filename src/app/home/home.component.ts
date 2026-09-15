@@ -3,11 +3,11 @@ import {
   Component,
   ElementRef,
   OnDestroy,
-  OnInit,
   ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { environment } from '@environments/environment';
 import { ContactService } from '../shared/services/contact.service';
 import { EmailParams } from '../shared/interfaces/contact.interface';
@@ -26,13 +26,10 @@ interface EarlyAccessModel {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './home.component.html',
 })
-export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
-  readonly currentYear = new Date().getFullYear();
-
-  navOpen = false;
+export class HomeComponent implements AfterViewInit, OnDestroy {
   submitting = false;
   sent = false;
   errorMsg = '';
@@ -62,18 +59,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     private readonly contact: ContactService
   ) {}
 
-  ngOnInit(): void {
-    // Apply a previously chosen theme (system preference otherwise).
-    try {
-      const saved = localStorage.getItem('graid-theme');
-      if (saved === 'dark' || saved === 'light') {
-        document.documentElement.setAttribute('data-theme', saved);
-      }
-    } catch {
-      /* localStorage unavailable; fall back to system preference */
-    }
-  }
-
   ngAfterViewInit(): void {
     this.setupReveal();
     this.setupWave();
@@ -87,29 +72,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.onResize) {
       window.removeEventListener('resize', this.onResize);
     }
-  }
-
-  toggleTheme(): void {
-    const root = document.documentElement;
-    const isDark =
-      root.getAttribute('data-theme') === 'dark' ||
-      (!root.hasAttribute('data-theme') &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches);
-    const next = isDark ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    try {
-      localStorage.setItem('graid-theme', next);
-    } catch {
-      /* ignore persistence failure */
-    }
-  }
-
-  toggleNav(): void {
-    this.navOpen = !this.navOpen;
-  }
-
-  closeNav(): void {
-    this.navOpen = false;
   }
 
   onSubmit(): void {

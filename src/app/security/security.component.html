@@ -1,0 +1,87 @@
+<!--
+  SECURITY & PRIVACY PAGE
+  Items marked with a "confirm" badge are factual claims about how Graid actually
+  handles data. Verify and finalize each one BEFORE deploying this page. Do not
+  publish security claims that are not true. See docs draft "Security & Privacy Page.md".
+-->
+<section class="section sec-hero">
+  <div class="wrap sec-hero-inner">
+    <span class="eyebrow">Security &amp; privacy</span>
+    <h1>Security and privacy, built for higher ed</h1>
+    <p class="sec-lead">Graid works with student learning data, including recorded tutoring sessions. Here's exactly what we collect, where it lives, and who can see it.</p>
+    <div class="sec-badges">
+      <span class="badge">LTI 1.3 / LTI Advantage</span>
+      <span class="badge">Encrypted in transit <span class="confirm">confirm: at rest</span></span>
+      <span class="badge">FERPA-conscious by design</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap sec-doc">
+
+    <article class="sec-block">
+      <h2>How Graid connects to Canvas</h2>
+      <p>Graid integrates with Canvas using <strong>LTI 1.3 / LTI Advantage</strong>, the standard higher-ed institutions already trust for third-party tools.</p>
+      <ul>
+        <li><strong>No password sharing.</strong> Launches use OpenID Connect. Students and instructors are authenticated by Canvas, and Graid never sees or stores LMS passwords.</li>
+        <li><strong>Least-privilege data.</strong> Graid receives only the roster and context the launch provides for the course it's placed in. <span class="confirm">confirm which roster/NRPS fields you request</span></li>
+        <li><strong>Grades flow back through the standard.</strong> Scores post to your gradebook via Assignment &amp; Grade Services (AGS), the same mechanism Canvas uses for any compliant tool.</li>
+        <li><strong>Institution-controlled.</strong> An admin installs and can remove Graid at any time; access ends when the placement is removed.</li>
+      </ul>
+    </article>
+
+    <article class="sec-block">
+      <h2>Student data and FERPA</h2>
+      <p><strong>What we collect:</strong> student name and course context from the LMS launch, and the content of tutoring sessions the student has with Graid (see <em>Recorded sessions</em> below). <span class="confirm">confirm the exact list</span></p>
+      <p><strong>What we don't do:</strong> we don't sell student data, we don't use student content to train third-party public models, and we don't share it with anyone outside the instructional context. <span class="confirm">confirm each</span></p>
+      <p><strong>FERPA.</strong> Graid operates as a school official with a legitimate educational interest under FERPA, acting under the institution's direction. Student records are used only to deliver tutoring and instructor visibility for that course. <span class="confirm">confirm this is your intended contractual basis</span></p>
+      <p><strong>Retention &amp; deletion.</strong> Session data is retained for <span class="confirm">confirm period</span> and deleted on request. Institutions can request export or deletion of their data by contacting us.</p>
+    </article>
+
+    <article class="sec-block">
+      <h2>Recorded tutoring sessions</h2>
+      <p>Graid's vision-and-voice tutoring means sessions may include audio, video, screen, or transcript data. <span class="confirm">confirm what a session contains</span> Because this is the most sensitive data Graid holds, it gets the most protection:</p>
+      <ul>
+        <li><strong>Access is scoped to the course</strong> — only the student and their course instructor(s) can view a session. <span class="confirm">confirm roles with access</span></li>
+        <li><strong>Encrypted</strong> in transit. <span class="confirm">confirm at-rest encryption and method</span></li>
+        <li><strong>Retained</strong> for a defined period, then deleted. <span class="confirm">confirm period</span></li>
+        <li><strong>Never used</strong> to identify students outside the course or for advertising.</li>
+      </ul>
+    </article>
+
+    <article class="sec-block">
+      <h2>Infrastructure, encryption &amp; isolation</h2>
+      <p>These are the questions a security questionnaire will ask. <span class="confirm">confirm every item in this section</span></p>
+      <ul>
+        <li><strong>Hosting:</strong> <span class="confirm">cloud provider / region</span></li>
+        <li><strong>Encryption:</strong> TLS in transit; <span class="confirm">at-rest method</span></li>
+        <li><strong>Tenant isolation:</strong> each institution's data is logically separated. <span class="confirm">describe</span></li>
+        <li><strong>Access controls:</strong> staff access is role-based, least-privilege, and logged. <span class="confirm">confirm</span></li>
+        <li><strong>Subprocessors:</strong> a current list is available on request. <span class="confirm">list — LLM provider, hosting, email</span></li>
+        <li><strong>AI provider data handling:</strong> student content sent to the AI model is not retained or used for training by the provider. <span class="confirm">confirm with your provider</span></li>
+      </ul>
+    </article>
+
+    <article class="sec-block">
+      <h2>AI safety and academic integrity</h2>
+      <p>Graid is a tutor, not an answer machine. It's designed to guide students toward understanding rather than hand over solutions, and instructors can review sessions to see how help was given. <span class="confirm">add one line on any misuse/jailbreak testing you can describe, or remove this sentence</span></p>
+    </article>
+
+    <article class="sec-block">
+      <h2>Accessibility</h2>
+      <p>Graid is built to be usable by every student. We follow WCAG <span class="confirm">confirm level, e.g. 2.1 AA</span> guidelines, and a VPAT is available on request. <span class="confirm">confirm you can produce one</span></p>
+    </article>
+
+    <article class="sec-block sec-cta-block">
+      <h2>Working with your security team</h2>
+      <p>We speak procurement. If you need a security questionnaire completed (HECVAT, SIG, or your own), a data processing agreement, or a subprocessor list, we're ready.</p>
+      <p class="sec-contact">Security questions: <a href="mailto:ceo&#64;graid.org">ceo&#64;graid.org</a> <span class="confirm">swap for security&#64;graid.org when available</span></p>
+      <div class="sec-actions">
+        <a [routerLink]="['/']" fragment="signup" class="btn btn-gold">Join Early Access</a>
+        <a routerLink="/contact" class="btn btn-ghost">Contact us</a>
+      </div>
+    </article>
+
+  </div>
+</section>

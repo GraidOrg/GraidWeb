@@ -1,0 +1,31 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg class="brand-mark" viewBox="0 0 120 120" style="width:38px;height:38px"><use href="#graid-mark"></use></svg>
+          <span class="wordmark">Gr<span class="ai">ai</span>d</span>
+        </div>
+        <p class="foot-tag">Vision-and-voice AI tutoring that empowers instructors, built into Canvas.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a [routerLink]="['/']" fragment="features">What it does</a>
+        <a [routerLink]="['/']" fragment="how">How it works</a>
+        <a routerLink="/security">Security &amp; privacy</a>
+        <a [routerLink]="['/']" fragment="signup">Join early access</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a routerLink="/contact">Contact us</a>
+        <a href="mailto:ceo&#64;graid.org">ceo&#64;graid.org</a>
+        <a href="assets/legal/privacy-policy.pdf" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        <a href="assets/legal/terms-of-service.pdf" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; {{ currentYear }} Graid. All rights reserved.</span>
+      <span>Made for instructors, not against students.</span>
+    </div>
+  </div>
+</footer>

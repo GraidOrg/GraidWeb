@@ -1,7 +1,27 @@
 <div class="app-container">
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- Brand mark: twin bell-curve "graph" logo, restyled as a tile (shared by header + footer) -->
+  <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="graidTile" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#4f2e81"></stop>
+        <stop offset="1" stop-color="#2b1745"></stop>
+      </linearGradient>
+      <symbol id="graid-mark" viewBox="0 0 120 120">
+        <rect width="120" height="120" rx="28" fill="url(#graidTile)"></rect>
+        <path d="M36 96 C54.7 96 59.1 20 70 20 C80.9 20 85.3 96 104 96 Z" fill="#fccf21"></path>
+        <path d="M14 96 C30.5 96 34.4 40 44 40 C53.6 40 57.5 96 74 96 Z" fill="#fccf21"></path>
+        <path d="M44 40 C53.6 40 57.5 96 74 96" fill="none" stroke="#2b1745" stroke-width="3.6" stroke-linecap="round"></path>
+      </symbol>
+    </defs>
+  </svg>
+
+  <app-site-header></app-site-header>
+
   <main id="main-content" role="main">
     <router-outlet></router-outlet>
   </main>
+
+  <app-site-footer></app-site-footer>
 </div>
