@@ -1,274 +1,353 @@
-<!-- Hero Section -->
-<section class="hero-section" aria-labelledby="hero-title">
-  <div class="hero-brand-bar">
-    <div class="hero-brand" aria-label="Graid">
-      <img
-        src="assets/images/gold_transparent.png"
-        alt=""
-        class="hero-brand__logo"
-        aria-hidden="true"
-      />
-      <span class="hero-brand__name">Gr<span class="brand-ai">ai</span>d</span>
+<!-- Brand mark: twin bell-curve "graph" logo, restyled as a tile -->
+<svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="graidTile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f2e81"></stop>
+      <stop offset="1" stop-color="#2b1745"></stop>
+    </linearGradient>
+    <symbol id="graid-mark" viewBox="0 0 120 120">
+      <rect width="120" height="120" rx="28" fill="url(#graidTile)"></rect>
+      <path d="M36 96 C54.7 96 59.1 20 70 20 C80.9 20 85.3 96 104 96 Z" fill="#fccf21"></path>
+      <path d="M14 96 C30.5 96 34.4 40 44 40 C53.6 40 57.5 96 74 96 Z" fill="#fccf21"></path>
+      <path d="M44 40 C53.6 40 57.5 96 74 96" fill="none" stroke="#2b1745" stroke-width="3.6" stroke-linecap="round"></path>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-brand" aria-label="Graid home">
+      <span class="nav-logo" aria-hidden="true">
+        <svg class="brand-mark" viewBox="0 0 120 120"><use href="#graid-mark"></use></svg>
+      </span>
+      <span class="wordmark">Gr<span class="ai">ai</span>d</span>
+    </a>
+
+    <nav class="nav-links" [class.open]="navOpen" aria-label="Primary">
+      <a class="navlink" href="#features" (click)="closeNav()">Product</a>
+      <a class="navlink" href="#how" (click)="closeNav()">How it works</a>
+      <a class="navlink" href="#security" (click)="closeNav()">Security</a>
+      <a class="navlink" href="#testimonials" (click)="closeNav()">Instructors</a>
+    </nav>
+
+    <div class="nav-right">
+      <button class="theme-toggle" (click)="toggleTheme()" aria-label="Toggle dark mode" title="Toggle theme" type="button">
+        <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"></path></svg>
+      </button>
+      <a href="#signup" class="btn btn-gold btn-sm nav-desktop-cta">Join Early Access</a>
+      <button class="nav-toggle" (click)="toggleNav()" [attr.aria-expanded]="navOpen" aria-label="Menu" type="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+      </button>
     </div>
-    <button
-      mat-raised-button
-      color="primary"
-      class="hero-button schedule-demo-button"
-      (click)="navigateToScheduleDemo()"
-      aria-label="Get a free pilot"
-    >
-      Get Free Pilot
-    </button>
   </div>
-  <div class="hero-content">
-    <h1 id="hero-title" class="hero-title">
-      An AI Tutor that Actually<br />
-      Empowers Instructors
-    </h1>
-    <button
-      mat-raised-button
-      color="primary"
-      class="hero-button schedule-demo-button"
-      (click)="navigateToScheduleDemo()"
-      aria-label="Get a free pilot to learn more about Graid"
-    >
-      Get Free Pilot
-    </button>
+</header>
+
+<span id="top"></span>
+
+<!-- ============ HERO ============ -->
+<section class="hero on-dark" aria-labelledby="hero-title">
+  <canvas #heroWave class="hero-wave" aria-hidden="true"></canvas>
+  <div class="wrap hero-inner">
+    <span class="pill-badge"><span class="dot"></span> Now onboarding a limited early-access cohort</span>
+    <h1 id="hero-title">An AI tutor that actually <em>empowers</em> instructors</h1>
+    <p class="lede">Graid tutors your students by voice and vision, then shows you exactly where they struggled, right inside Canvas.</p>
+    <div class="hero-cta">
+      <a href="#signup" class="btn btn-gold">Join Early Access</a>
+      <a href="#how" class="btn btn-ghost">See how it works</a>
+    </div>
+    <div class="trust-row">
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg> Free semester-long pilot</span>
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg> Limited spots</span>
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg> Works in Canvas</span>
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg> Built for student privacy</span>
+    </div>
   </div>
 </section>
 
-<section class="hero-features" aria-label="Key Graid features">
-  <div class="hero-features__item hero-features__item--light">
-    <img
-      src="assets/images/white_tutor_icon.svg"
-      alt=""
-      class="hero-features__icon"
-      aria-hidden="true"
-    />
-    <span class="hero-features__text">Vision and voice AI tutor</span>
-  </div>
-  <div class="hero-features__item hero-features__item--mid">
-    <img
-      src="assets/images/white_recording_icon.svg"
-      alt=""
-      class="hero-features__icon"
-      aria-hidden="true"
-    />
-    <span class="hero-features__text">See recorded student sessions</span>
-  </div>
-  <div class="hero-features__item hero-features__item--dark">
-    <img
-      src="assets/images/white_canvas_icon.svg"
-      alt=""
-      class="hero-features__icon"
-      aria-hidden="true"
-    />
-    <span class="hero-features__text">Auto-grading in Canvas</span>
+<!-- ============ FEATURES ============ -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">What Graid does</span>
+      <h2>Tutoring students can talk to. Visibility you can act on.</h2>
+      <p>Three things working together: the tutoring, the window into it, and the grades that follow.</p>
+    </div>
+    <div class="features">
+      <article class="feature reveal">
+        <div class="ficon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4M8 22h8"></path></svg></div>
+        <h3>Vision &amp; voice tutoring</h3>
+        <p>Students talk through problems and show their work. Graid guides them step-by-step toward understanding, not answers.</p>
+      </article>
+      <article class="feature reveal">
+        <div class="ficon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
+        <h3>See recorded sessions</h3>
+        <p>Review any tutoring session. Know who's stuck, where, and why. No more guessing from a finished assignment.</p>
+      </article>
+      <article class="feature reveal">
+        <div class="ficon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 4.9-9 4.9-9-4.9L12 2z"></path><path d="M3 12l9 4.9 9-4.9M3 17l9 4.9 9-4.9"></path></svg></div>
+        <h3>Auto-grading in Canvas</h3>
+        <p>Graid plugs into Canvas via LTI. Scores post straight to your gradebook. No exporting, no double entry.</p>
+      </article>
+    </div>
   </div>
 </section>
 
-<section class="cheat-chat-section" aria-labelledby="problem-title">
-  <div class="cheat-chat-section__inner">
-    <h2 id="problem-title" class="cheat-chat-section__title">
-      Avoid awkward AI cheating chats
-    </h2>
-    <div class="cheat-chat-section__media">
-      <img
-        src="assets/images/cheat_chat_no_background.png"
-        alt="Conversation about AI-assisted coursework"
-        class="cheat-chat-section__image"
-      />
-      <div class="cheat-chat-section__cta">
-        <button
-          mat-raised-button
-          color="primary"
-          class="hero-button schedule-demo-button"
-          (click)="navigateToScheduleDemo()"
-          aria-label="Get a free pilot"
-        >
-          Get Free Pilot
-        </button>
+<!-- ============ INTEGRITY ============ -->
+<section class="section integrity" id="integrity">
+  <div class="wrap">
+    <div class="contrast-grid">
+      <div class="section-head reveal" style="margin-bottom:0;">
+        <span class="eyebrow">Integrity by design</span>
+        <h2>Stop guessing. Stop policing AI.</h2>
+        <p>Students already use AI, often to get answers, not understanding. Graid flips that: it tutors them out loud toward the answer, and gives you a window into every session. No awkward cheating conversations. No wondering who needs help.</p>
+      </div>
+      <div class="contrast-cards reveal">
+        <div class="ccard bad">
+          <div class="clabel"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"></path></svg> Generic AI chatbot</div>
+          <div class="chat-line"><span class="who">Student</span><span>“Just give me the answer to #4.”</span></div>
+          <div class="chat-line"><span class="who">AI</span><span>“Sure, here's the full solution.”</span></div>
+        </div>
+        <div class="ccard good">
+          <div class="clabel"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg> Graid</div>
+          <div class="chat-line"><span class="who">Student</span><span>“Just give me the answer to #4.”</span></div>
+          <div class="chat-line tutor"><span class="who">Graid</span><span>“Let's get you there. What do you already know about the forces acting here?”</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="tutoring-video-section" aria-label="Tutoring demonstration video">
-  <div class="video-embed-wrapper">
-    <video
-      #tutoringVideo
-      class="tutoring-video"
-      controls
-      playsinline
-      preload="metadata"
-      aria-label="Graid tutoring demonstration"
-      (play)="onVideoPlay()"
-      (pause)="onVideoPause()"
-      (ended)="onVideoPause()"
-    >
-      <source src="assets/images/Tutoring.mp4" type="video/mp4" />
-      Your browser does not support embedded videos.
-    </video>
-    <button
-      *ngIf="!isVideoPlaying"
-      type="button"
-      class="video-play-button"
-      (click)="playVideo()"
-      aria-label="Play tutoring demonstration video"
-    >
-      <mat-icon aria-hidden="true">play_arrow</mat-icon>
-    </button>
+<!-- ============ PRODUCT SHOWCASE ============ -->
+<section class="section" id="showcase">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Instructor visibility</span>
+      <h2>Every session, in view</h2>
+      <p>This is what you see after a student works with Graid: the conversation, where they struggled, and the grade already in Canvas.</p>
+    </div>
+    <div class="session-card reveal" role="img" aria-label="Example Graid session review showing a voice tutoring session, transcript, struggle tags, and a posted grade">
+      <div class="sc-top">
+        <span class="sc-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="sc-title">Session review · PHYS 121 · Problem Set 4</span>
+        <span class="sc-live"><span class="dot"></span> Recorded</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-voice">
+          <span class="mic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v1a7 7 0 0 1-14 0v-1"></path></svg></span>
+          <span class="bars" aria-hidden="true">
+            <i style="animation-delay:0s"></i><i style="animation-delay:.1s"></i><i style="animation-delay:.25s"></i><i style="animation-delay:.15s"></i><i style="animation-delay:.35s"></i><i style="animation-delay:.05s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.4s"></i><i style="animation-delay:.12s"></i><i style="animation-delay:.28s"></i><i style="animation-delay:.18s"></i><i style="animation-delay:.33s"></i><i style="animation-delay:.08s"></i>
+          </span>
+          <span class="sc-time">6:12</span>
+        </div>
+        <div class="sc-transcript">
+          <div class="t"><span class="who">Maya</span><span>“I set up the equation but I'm not sure which force is negative.”</span></div>
+          <div class="t g"><span class="who">Graid</span><span>“Good start. Which direction did you choose as positive? Let's check each force against that.”</span></div>
+        </div>
+        <div class="sc-meta">
+          <span class="tag stuck">Struggled: sign conventions</span>
+          <span class="tag">Concept: free-body diagrams</span>
+          <span class="tag grade"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg> Posted to Canvas · 8.5/10</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Content Sections -->
-<div class="content-wrapper">
-  <section class="process-steps" aria-labelledby="process-steps-title">
-    <h2 id="process-steps-title" class="process-steps__title">3 Easy Steps</h2>
-    <div class="process-steps__grid">
-      <div class="process-steps__item" *ngFor="let step of processSteps; let i = index">
-        <mat-icon class="process-steps__icon" aria-hidden="true">{{ step.icon }}</mat-icon>
-        <p class="process-steps__number">{{ i + 1 }}</p>
-        <p class="process-steps__label">{{ step.label }}</p>
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section integrity" id="how">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>From early access to insight in three steps</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="num">1</span>
+        <h3>Join early access</h3>
+        <p>Claim a free, semester-long pilot. We set you up in Canvas (or standalone) in a class or two.</p>
+      </div>
+      <div class="step reveal">
+        <span class="num">2</span>
+        <h3>Students get real tutoring</h3>
+        <p>Voice-and-vision help whenever they're stuck, guiding them toward understanding instead of answers.</p>
+      </div>
+      <div class="step reveal">
+        <span class="num">3</span>
+        <h3>You see what's working</h3>
+        <p>Recorded sessions, where students struggle, and grades posted to your Canvas gradebook automatically.</p>
       </div>
     </div>
-  </section>
-
-  <div class="process-steps-cta">
-    <button
-      mat-raised-button
-      color="primary"
-      class="process-steps-button schedule-demo-button"
-      (click)="navigateToScheduleDemo()"
-      aria-label="Get a free pilot"
-    >
-      Get Free Pilot
-    </button>
   </div>
+</section>
 
-  <section class="testimonials-section" aria-labelledby="testimonials-title">
-    <div class="testimonials-section__box">
-      <h2 id="testimonials-title" class="testimonials-section__title">Testimonials</h2>
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section" id="testimonials">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">From the pilot</span>
+      <h2>What instructors and students say</h2>
+    </div>
+    <div class="quotes">
+      <figure class="quote reveal">
+        <div class="mark" aria-hidden="true">&ldquo;</div>
+        <p>It's better than my actual teacher.</p>
+        <figcaption class="attr"><b>Student</b> · placeholder: add course &amp; institution</figcaption>
+      </figure>
+      <figure class="quote reveal">
+        <div class="mark" aria-hidden="true">&ldquo;</div>
+        <p>I can see the student conversations, and I love the visibility.</p>
+        <figcaption class="attr"><b>Dr. Davies</b> · placeholder: add title &amp; institution</figcaption>
+      </figure>
+      <figure class="quote reveal">
+        <div class="mark" aria-hidden="true">&ldquo;</div>
+        <p>It grades for you. I couldn't ask for more.</p>
+        <figcaption class="attr"><b>Dr. Arroyo</b> · placeholder: add title &amp; institution</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
-      <div class="testimonials-carousel">
-        <button
-          type="button"
-          class="testimonials-carousel__arrow testimonials-carousel__arrow--prev"
-          (click)="prevTestimonial()"
-          aria-label="Previous testimonial"
-        >
-          <span class="testimonials-carousel__arrow-icon" aria-hidden="true"></span>
-        </button>
+<!-- ============ SECURITY ============ -->
+<section class="section security" id="security">
+  <div class="wrap">
+    <div class="sec-grid">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Security &amp; privacy</span>
+        <h2>Built for the people who sign off</h2>
+        <p>Graid handles student learning data, including recorded sessions. We're built to answer the IT and privacy questions before they're asked.</p>
+        <div class="sec-list">
+          <div class="sec-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> LTI 1.3 / LTI Advantage</div>
+          <div class="sec-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Encrypted in transit</div>
+          <div class="sec-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg> FERPA-conscious by design</div>
+          <div class="sec-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v6H4zM4 14h16v6H4z"></path></svg> Per-institution isolation</div>
+        </div>
+        <p class="sec-note">Specifics on our security page. HECVAT and DPA on request.</p>
+      </div>
+      <div class="sec-emblem reveal">
+        <div class="plate">
+          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#fccf21" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div
-          class="testimonials-carousel__viewport"
-          aria-live="polite"
-          aria-atomic="true"
-        >
-          <blockquote
-            *ngFor="let testimonial of testimonials; let i = index"
-            class="testimonial"
-            [class.testimonial--active]="i === activeTestimonialIndex"
-            [attr.aria-hidden]="i !== activeTestimonialIndex"
-          >
-            <p class="testimonial__text">
-              <span class="testimonial__quote" aria-hidden="true">"</span>{{ testimonial.quote }}<span class="testimonial__quote" aria-hidden="true">"</span>
-            </p>
-            <footer class="testimonial__attribution">{{ testimonial.attribution }}</footer>
-          </blockquote>
+<!-- ============ LEAD MAGNET ============ -->
+<section class="section" id="guide">
+  <div class="wrap">
+    <div class="magnet-card reveal">
+      <div class="doc" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6M9 13h6M9 17h6"></path></svg></div>
+      <div>
+        <h3>Free guide: The University Admin's AI Paradox</h3>
+        <p>Why banning AI backfires, and what to do instead. A short read for provosts, deans, and teaching-and-learning teams.</p>
+      </div>
+      <a href="#signup" class="btn btn-gold">Get the guide</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGNUP ============ -->
+<section class="section signup" id="signup">
+  <div class="wrap">
+    <div class="form-card reveal">
+      <form *ngIf="!sent" (ngSubmit)="onSubmit()" #earlyForm="ngForm" novalidate>
+        <span class="eyebrow">Early access</span>
+        <h2>Join Graid early access</h2>
+        <p class="sub">Early-access members get a free, semester-long pilot. Tell us about your course and we'll get you set up, in Canvas or standalone, within 2 business days.</p>
+
+        <input class="honeypot" type="text" name="company" [(ngModel)]="model.company" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="f-name">Name <span class="req">*</span></label>
+            <input id="f-name" name="name" type="text" [(ngModel)]="model.name" required autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="f-email">Work email <span class="req">*</span></label>
+            <input id="f-email" name="email" type="email" [(ngModel)]="model.email" required autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="f-inst">Institution <span class="req">*</span></label>
+            <input id="f-inst" name="institution" type="text" [(ngModel)]="model.institution" required />
+          </div>
+          <div class="field">
+            <label for="f-role">Role</label>
+            <select id="f-role" name="role" [(ngModel)]="model.role">
+              <option value="">Select…</option>
+              <option>Instructor</option>
+              <option>Instructional Designer</option>
+              <option>Administrator / IT</option>
+              <option>Department Leadership</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-lms">LMS</label>
+            <select id="f-lms" name="lms" [(ngModel)]="model.lms">
+              <option>Canvas</option>
+              <option>Blackboard</option>
+              <option>Moodle</option>
+              <option>D2L / Brightspace</option>
+              <option>Other / None</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-course">What do you teach?</label>
+            <input id="f-course" name="course" type="text" [(ngModel)]="model.course" placeholder="e.g. Intro Physics" />
+          </div>
+          <div class="field full">
+            <label for="f-msg">Anything you're hoping Graid helps with?</label>
+            <textarea id="f-msg" name="message" [(ngModel)]="model.message" placeholder="Optional"></textarea>
+          </div>
         </div>
 
-        <button
-          type="button"
-          class="testimonials-carousel__arrow testimonials-carousel__arrow--next"
-          (click)="nextTestimonial()"
-          aria-label="Next testimonial"
-        >
-          <span class="testimonials-carousel__arrow-icon" aria-hidden="true"></span>
-        </button>
-      </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-gold" [disabled]="submitting">{{ submitting ? 'Sending…' : 'Join early access' }}</button>
+          <span class="form-note"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> Limited spots · We respond within 2 business days.</span>
+        </div>
+        <p class="form-error" *ngIf="errorMsg">{{ errorMsg }}</p>
+      </form>
 
-      <div class="testimonials-carousel__dots" role="tablist" aria-label="Testimonial navigation">
-        <button
-          *ngFor="let testimonial of testimonials; let i = index"
-          type="button"
-          class="testimonials-carousel__dot"
-          [class.testimonials-carousel__dot--active]="i === activeTestimonialIndex"
-          (click)="goToTestimonial(i)"
-          [attr.aria-label]="'Go to testimonial ' + (i + 1)"
-          [attr.aria-selected]="i === activeTestimonialIndex"
-          role="tab"
-        ></button>
+      <div class="form-success" *ngIf="sent" aria-live="polite">
+        <div class="check" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></div>
+        <h3>You're on the list</h3>
+        <p>Thanks! We'll be in touch within 2 business days to set up your free pilot.</p>
       </div>
     </div>
-  </section>
-</div>
-
-<section class="guide-download-section" aria-labelledby="guide-download-title">
-  <h2 id="guide-download-title" class="guide-download-section__title">
-    Download Our Free PDF<br />
-    "The University Admin's AI Paradox"
-  </h2>
-  <button
-    mat-raised-button
-    color="primary"
-    type="button"
-    class="guide-download-button schedule-demo-button"
-    (click)="navigateToScheduleDemo()"
-    aria-label="Get a free pilot"
-  >
-    Download
-  </button>
+  </div>
 </section>
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="footer-content">
-    <div class="footer-section">
-      <h3 class="footer-title">Gr<span class="brand-ai">ai</span>d</h3>
-      <p class="footer-tagline">Vision and Voice AI Tutor</p>
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg class="brand-mark" viewBox="0 0 120 120" style="width:38px;height:38px"><use href="#graid-mark"></use></svg>
+          <span class="wordmark">Gr<span class="ai">ai</span>d</span>
+        </div>
+        <p class="foot-tag">Vision-and-voice AI tutoring that empowers instructors, built into Canvas.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="#features">What it does</a>
+        <a href="#how">How it works</a>
+        <a href="#security">Security &amp; privacy</a>
+        <a href="#signup">Join early access</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="mailto:ceo&#64;graid.org">ceo&#64;graid.org</a>
+        <a href="#guide">The AI Paradox guide</a>
+        <a href="assets/legal/privacy-policy.pdf" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        <a href="assets/legal/terms-of-service.pdf" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+      </div>
     </div>
-    <div class="footer-section">
-      <h4 class="footer-heading">Contact</h4>
-      <a
-        href="mailto:ceo&#64;graid.org"
-        class="footer-link"
-        aria-label="Send email to ceo@graid.org"
-        >ceo&#64;graid.org</a
-      >
+    <div class="foot-bottom">
+      <span>&copy; {{ currentYear }} Graid. All rights reserved.</span>
+      <span>Made for instructors, not against students.</span>
     </div>
-    <div class="footer-section">
-      <h4 class="footer-heading">Links</h4>
-      <a
-        (click)="navigateToContact()"
-        class="footer-link"
-        role="button"
-        tabindex="0"
-        aria-label="Navigate to contact page"
-        (keydown.enter)="navigateToContact()"
-        (keydown.space)="navigateToContact()"
-        >Contact Us</a
-      >
-      <a
-        href="assets/legal/privacy-policy.pdf"
-        class="footer-link"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Open Privacy Policy PDF"
-        >Privacy Policy</a
-      >
-      <a
-        href="assets/legal/terms-of-service.pdf"
-        class="footer-link"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Open Terms of Service PDF"
-        >Terms of Service</a
-      >
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; {{ currentYear }} Graid. All rights reserved.</p>
   </div>
 </footer>
-
