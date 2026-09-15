@@ -1,147 +1,44 @@
-<div class="contact-container">
-  <div class="contact-content" role="region" aria-labelledby="contact-title">
-    <header class="contact-header">
-      <h1 id="contact-title" class="contact-title">{{ formTitle }}</h1>
-      <p class="contact-subtitle">{{ formSubtitle }}</p>
-    </header>
+<section class="section signup contact-page">
+  <div class="wrap">
+    <div class="form-card">
+      <form *ngIf="!sent" (ngSubmit)="onSubmit()" novalidate aria-label="Contact form">
+        <span class="eyebrow">Contact</span>
+        <h2>Get in touch</h2>
+        <p class="sub">Questions about Graid, pilots, or security? Send us a note and we'll reply within 2 business days. To start a free pilot, <a routerLink="/" fragment="signup" class="inline-link">join early access</a>.</p>
 
-    <form
-      [formGroup]="contactForm"
-      (ngSubmit)="onSubmit()"
-      class="contact-form"
-      novalidate
-      aria-label="Contact form"
-    >
-      <mat-form-field appearance="outline" class="form-field">
-        <mat-label>Name</mat-label>
-        <input
-          matInput
-          formControlName="name"
-          required
-          aria-required="true"
-          autocomplete="name"
-        />
-        <mat-error *ngIf="isFieldInvalid('name')">
-          {{ getErrorMessage("name") }}
-        </mat-error>
-      </mat-form-field>
+        <input class="honeypot" type="text" name="company" [(ngModel)]="model.company" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-      <mat-form-field appearance="outline" class="form-field">
-        <mat-label>Email</mat-label>
-        <input
-          matInput
-          type="email"
-          formControlName="email"
-          required
-          aria-required="true"
-          autocomplete="email"
-        />
-        <mat-error *ngIf="isFieldInvalid('email')">
-          {{ getErrorMessage("email") }}
-        </mat-error>
-      </mat-form-field>
+        <div class="field-grid">
+          <div class="field">
+            <label for="c-name">Name <span class="req">*</span></label>
+            <input id="c-name" name="name" type="text" [(ngModel)]="model.name" required autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="c-email">Email <span class="req">*</span></label>
+            <input id="c-email" name="email" type="email" [(ngModel)]="model.email" required autocomplete="email" />
+          </div>
+          <div class="field full">
+            <label for="c-subject">Subject <span class="req">*</span></label>
+            <input id="c-subject" name="subject" type="text" [(ngModel)]="model.subject" required />
+          </div>
+          <div class="field full">
+            <label for="c-message">Message <span class="req">*</span></label>
+            <textarea id="c-message" name="message" [(ngModel)]="model.message" required></textarea>
+          </div>
+        </div>
 
-      <ng-container *ngIf="formType === constants.FORM_TYPES.DEMO">
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>Institution/Organization</mat-label>
-          <input
-            matInput
-            formControlName="institution"
-            required
-            aria-required="true"
-            autocomplete="organization"
-          />
-          <mat-error *ngIf="isFieldInvalid('institution')">
-            {{ getErrorMessage("institution") }}
-          </mat-error>
-        </mat-form-field>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-gold" [disabled]="submitting">{{ submitting ? 'Sending…' : 'Send message' }}</button>
+          <span class="form-note">We reply within 2 business days.</span>
+        </div>
+        <p class="form-error" *ngIf="errorMsg">{{ errorMsg }}</p>
+      </form>
 
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>Role</mat-label>
-          <mat-select formControlName="role" required>
-            <mat-option value="Professor">Professor</mat-option>
-            <mat-option value="Administrator">Administrator</mat-option>
-            <mat-option value="Other">Other</mat-option>
-          </mat-select>
-          <mat-error *ngIf="isFieldInvalid('role')">
-            {{ getErrorMessage("role") }}
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>Preferred Date</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="preferredDate" />
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>Preferred Time</mat-label>
-          <input matInput type="time" formControlName="preferredTime" />
-        </mat-form-field>
-      </ng-container>
-
-      <ng-container *ngIf="formType === constants.FORM_TYPES.CONTACT">
-        <mat-form-field appearance="outline" class="form-field">
-          <mat-label>Subject</mat-label>
-          <input
-            matInput
-            formControlName="subject"
-            required
-            aria-required="true"
-          />
-          <mat-error *ngIf="isFieldInvalid('subject')">
-            {{ getErrorMessage("subject") }}
-          </mat-error>
-        </mat-form-field>
-      </ng-container>
-
-      <mat-form-field appearance="outline" class="form-field message-field">
-        <mat-label>Message</mat-label>
-        <textarea
-          matInput
-          formControlName="message"
-          rows="5"
-          [required]="formType === constants.FORM_TYPES.CONTACT"
-          [attr.aria-required]="formType === constants.FORM_TYPES.CONTACT"
-        ></textarea>
-        <mat-error *ngIf="isFieldInvalid('message')">
-          {{ getErrorMessage("message") }}
-        </mat-error>
-      </mat-form-field>
-
-      <div
-        *ngIf="submitSuccess"
-        class="form-message form-message--success"
-        role="alert"
-        aria-live="polite"
-      >
-        <p>{{ constants.MESSAGES.FORM_SUBMIT_SUCCESS }}</p>
+      <div class="form-success" *ngIf="sent" aria-live="polite">
+        <div class="check" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></div>
+        <h3>Message sent</h3>
+        <p>Thanks for reaching out. We'll get back to you within 2 business days.</p>
       </div>
-
-      <div
-        *ngIf="submitError"
-        class="form-message form-message--error"
-        role="alert"
-        aria-live="assertive"
-      >
-        <p><strong>{{ constants.MESSAGES.FORM_SUBMIT_ERROR }}</strong></p>
-        <p *ngIf="errorMessage" class="form-message__detail">{{ errorMessage }}</p>
-        <p *ngIf="!environment.production" class="form-message__detail form-message__detail--muted">
-          Check the browser console for more details.
-        </p>
-      </div>
-
-      <button
-        mat-raised-button
-        color="primary"
-        type="submit"
-        class="submit-button schedule-demo-button"
-        [disabled]="isSubmitting || contactForm.invalid"
-        [attr.aria-busy]="isSubmitting"
-      >
-        {{ isSubmitting ? 'Sending...' : 'Submit' }}
-      </button>
-    </form>
+    </div>
   </div>
-</div>
+</section>

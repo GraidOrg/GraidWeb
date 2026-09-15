@@ -3,9 +3,13 @@ import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { 
-    path: 'contact', 
+  {
+    path: 'contact',
     loadComponent: () => import('./contact/contact.component').then(m => m.ContactComponent)
+  },
+  {
+    path: 'security',
+    loadComponent: () => import('./security/security.component').then(m => m.SecurityComponent)
   },
   { path: '**', redirectTo: '' }
 ];

@@ -1,0 +1,28 @@
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a [routerLink]="['/']" class="nav-brand" aria-label="Graid home">
+      <span class="nav-logo" aria-hidden="true">
+        <svg class="brand-mark" viewBox="0 0 120 120"><use href="#graid-mark"></use></svg>
+      </span>
+      <span class="wordmark">Gr<span class="ai">ai</span>d</span>
+    </a>
+
+    <nav class="nav-links" [class.open]="navOpen" aria-label="Primary">
+      <a class="navlink" [routerLink]="['/']" fragment="features" (click)="closeNav()">Product</a>
+      <a class="navlink" [routerLink]="['/']" fragment="how" (click)="closeNav()">How it works</a>
+      <a class="navlink" routerLink="/security" (click)="closeNav()">Security</a>
+      <a class="navlink" [routerLink]="['/']" fragment="testimonials" (click)="closeNav()">Instructors</a>
+    </nav>
+
+    <div class="nav-right">
+      <button class="theme-toggle" (click)="toggleTheme()" aria-label="Toggle dark mode" title="Toggle theme" type="button">
+        <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"></path></svg>
+      </button>
+      <a [routerLink]="['/']" fragment="signup" class="btn btn-gold btn-sm nav-desktop-cta">Join Early Access</a>
+      <button class="nav-toggle" (click)="toggleNav()" [attr.aria-expanded]="navOpen" aria-label="Menu" type="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
